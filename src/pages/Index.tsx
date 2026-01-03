@@ -232,10 +232,15 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-20">
+      <section className="py-20 overflow-hidden">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
                 Built on Desert Drywall's Legacy of Quality Craftsmanship
               </h2>
@@ -247,14 +252,19 @@ const Index = () => {
                   Our crews have worked together continuously since before 2017, bringing that same dedication to quality that Desert Drywall built its reputation on. Today, we're proud to serve property owners across Oregon, Washington, and Idaho with the same professional standards and experienced craftsmanship.
                 </p>
               </div>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            >
               <img 
                 src={colorMastersTrucks} 
                 alt="Color Masters Painting trucks at a job site" 
                 className="rounded-xl shadow-lg w-full"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
