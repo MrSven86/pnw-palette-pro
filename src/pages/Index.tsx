@@ -17,6 +17,7 @@ import trimWork from "@/assets/trim-work.jpg";
 import iconLiability from "@/assets/icon-liability.png";
 import iconTristate from "@/assets/icon-tristate.png";
 import iconBbb from "@/assets/icon-bbb.png";
+import iconPaintBucket from "@/assets/icon-paint-bucket.png";
 
 const services = [
   {
@@ -132,6 +133,23 @@ const Index = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Licensed & Trusted Section */}
+      <section className="py-16 text-center">
+        <div className="container max-w-3xl">
+          <img 
+            src={iconPaintBucket} 
+            alt="Paint bucket icon" 
+            className="h-16 w-auto mx-auto mb-6"
+          />
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
+            Licensed, Insured, and Trusted Across Three States
+          </h2>
+          <p className="text-muted-foreground leading-relaxed">
+            Our crews have worked together continuously since before 2017, bringing that same dedication to quality that Desert Drywall built its reputation on. Today, we're proud to serve property owners across Oregon, Washington, and Idaho with the same professional standards and experienced craftsmanship.
+          </p>
         </div>
       </section>
 
