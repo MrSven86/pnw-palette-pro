@@ -110,11 +110,14 @@ const Index = () => {
       />
 
       {/* Trust & Credibility Section */}
-      <section className="py-16 bg-background">
+      <section className="relative -mt-20 z-20 pb-16">
         <div className="container">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {trustFeatures.map((feature, index) => (
-              <div key={index} className="bg-card rounded-lg p-8 shadow-sm border border-border text-center">
+              <div 
+                key={index} 
+                className="bg-white/[0.97] rounded-xl p-8 shadow-lg text-center"
+              >
                 <img 
                   src={feature.icon} 
                   alt={feature.title} 
