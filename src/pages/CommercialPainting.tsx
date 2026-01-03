@@ -2,7 +2,7 @@ import { Layout } from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeader } from "@/components/Section";
 import { ProcessStep } from "@/components/Cards";
-import { CTASection } from "@/components/CTASection";
+import { EstimateSection } from "@/components/EstimateSection";
 import { Building2, Home, Factory, MapPin, Shield, Clock, FileCheck, Users } from "lucide-react";
 
 import commercialPainting from "@/assets/commercial-painting.jpg";
@@ -165,11 +165,7 @@ const CommercialPainting = () => {
         </div>
       </Section>
 
-      <CTASection
-        title="Get a Quote for Your Commercial Property"
-        description="Contact us for a detailed proposal for your commercial painting project across Oregon, Washington, or Idaho."
-        primaryCta={{ text: "Request Commercial Quote", href: "/contact" }}
-      />
+      <EstimateSection title="Get a Quote for Your Commercial Property" />
     </Layout>
   );
 };

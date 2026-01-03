@@ -2,7 +2,7 @@ import { Layout } from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeader } from "@/components/Section";
 import { ProcessStep } from "@/components/Cards";
-import { CTASection } from "@/components/CTASection";
+import { EstimateSection } from "@/components/EstimateSection";
 import { Home, Building2, CheckCircle, Paintbrush, Palette } from "lucide-react";
 
 import cabinetRefinishing from "@/assets/cabinet-refinishing.jpg";
@@ -220,7 +220,7 @@ const CabinetRefinishing = () => {
         </div>
       </Section>
 
-      <CTASection title="Ready to Refresh Your Cabinets?" />
+      <EstimateSection title="Ready to Refresh Your Cabinets?" />
     </Layout>
   );
 };

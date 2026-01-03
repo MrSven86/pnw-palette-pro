@@ -2,7 +2,7 @@ import { Layout } from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeader } from "@/components/Section";
 import { FeatureCard, ProcessStep } from "@/components/Cards";
-import { CTASection } from "@/components/CTASection";
+import { EstimateSection } from "@/components/EstimateSection";
 import { Shield, Users, Calendar, MapPin, CheckCircle } from "lucide-react";
 
 import heroHome from "@/assets/hero-home.jpg";
@@ -180,7 +180,7 @@ const ResidentialPainting = () => {
         </div>
       </Section>
 
-      <CTASection title="Ready to Refresh Your Home?" />
+      <EstimateSection title="Ready to Refresh Your Home?" />
     </Layout>
   );
 };

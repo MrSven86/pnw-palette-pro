@@ -2,7 +2,7 @@ import { Layout } from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeader } from "@/components/Section";
 import { ServiceCard } from "@/components/Cards";
-import { CTASection } from "@/components/CTASection";
+import { EstimateSection } from "@/components/EstimateSection";
 import { ProjectSlideshow } from "@/components/ProjectSlideshow";
 
 import heroHome from "@/assets/hero-home.jpg";
@@ -88,7 +88,7 @@ const Services = () => {
         <ProjectSlideshow />
       </Section>
 
-      <CTASection />
+      <EstimateSection />
     </Layout>
   );
 };

@@ -1,7 +1,7 @@
 import { Layout } from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeader } from "@/components/Section";
-import { CTASection } from "@/components/CTASection";
+import { EstimateSection } from "@/components/EstimateSection";
 import { Shield, Users, Award, MapPin, CheckCircle, FileCheck } from "lucide-react";
 
 import exteriorPainting from "@/assets/exterior-painting.jpg";
@@ -144,7 +144,7 @@ const AboutUs = () => {
         </div>
       </Section>
 
-      <CTASection title="Ready to Work with Us?" />
+      <EstimateSection title="Ready to Work with Us?" />
     </Layout>
   );
 };
