@@ -7,6 +7,8 @@ import { ProjectSlideshow } from "@/components/ProjectSlideshow";
 import { ClipboardList, Calendar, Paintbrush, CheckCircle, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 import heroBanner from "@/assets/hero-banner.png";
 import interiorPainting from "@/assets/interior-painting.jpg";
@@ -84,6 +86,34 @@ const processSteps = [
   },
 ];
 
+// Paint Bucket Section with tipping animation
+const PaintBucketSection = ({ iconPaintBucket }: { iconPaintBucket: string }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <section className="py-16 text-center">
+      <div className="container max-w-3xl">
+        <motion.img 
+          ref={ref}
+          src={iconPaintBucket} 
+          alt="Paint bucket icon" 
+          className="h-16 w-auto mx-auto mb-6 origin-bottom-right"
+          initial={{ rotate: 0 }}
+          animate={isInView ? { rotate: [0, -25, -20] } : { rotate: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+        />
+        <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
+          Licensed, Insured, and Trusted Across Three States
+        </h2>
+        <p className="text-muted-foreground leading-relaxed">
+          Our crews have worked together continuously since before 2017, bringing that same dedication to quality that Desert Drywall built its reputation on. Today, we're proud to serve property owners across Oregon, Washington, and Idaho with the same professional standards and experienced craftsmanship.
+        </p>
+      </div>
+    </section>
+  );
+};
+
 const Index = () => {
   return (
     <Layout>
@@ -122,21 +152,7 @@ const Index = () => {
       </section>
 
       {/* Licensed & Trusted Section */}
-      <section className="py-16 text-center">
-        <div className="container max-w-3xl">
-          <img 
-            src={iconPaintBucket} 
-            alt="Paint bucket icon" 
-            className="h-16 w-auto mx-auto mb-6"
-          />
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Licensed, Insured, and Trusted Across Three States
-          </h2>
-          <p className="text-muted-foreground leading-relaxed">
-            Our crews have worked together continuously since before 2017, bringing that same dedication to quality that Desert Drywall built its reputation on. Today, we're proud to serve property owners across Oregon, Washington, and Idaho with the same professional standards and experienced craftsmanship.
-          </p>
-        </div>
-      </section>
+      <PaintBucketSection iconPaintBucket={iconPaintBucket} />
 
       {/* Services Overview Section */}
       <section className="py-20 bg-muted/30">
