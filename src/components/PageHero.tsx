@@ -46,7 +46,7 @@ export function PageHero({
               {preHeadline}
             </p>
           )}
-          <h1 className="font-display text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.1] italic">
+          <h1 className="font-display text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.1]">
             {headline}
           </h1>
           <p className="text-base md:text-lg text-white/80 max-w-xl leading-relaxed">
