@@ -4,7 +4,7 @@ import { Section, SectionHeader } from "@/components/Section";
 import { EstimateSection } from "@/components/EstimateSection";
 import { Shield, Users, Award, MapPin, CheckCircle, FileCheck } from "lucide-react";
 
-import exteriorPainting from "@/assets/exterior-painting.jpg";
+import aboutHero from "@/assets/about-hero.jpg";
 import heroHome from "@/assets/hero-home.jpg";
 
 const differentiators = [
@@ -49,7 +49,7 @@ const AboutUs = () => {
         preHeadline=""
         headline="Built on Desert Drywall's Legacy of Quality Craftsmanship"
         subHeadline="Color Masters Painting was created in 2017 to preserve the skilled painting crews and professional standards that Desert Drywall built its reputation on across the Pacific Northwest."
-        backgroundImage={exteriorPainting}
+        backgroundImage={aboutHero}
       />
 
       {/* Our Story */}
