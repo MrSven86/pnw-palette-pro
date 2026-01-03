@@ -9,8 +9,8 @@ import { Button } from "@/components/ui/button";
 
 import heroBanner from "@/assets/hero-banner.png";
 import interiorPainting from "@/assets/interior-painting.jpg";
-import exteriorPainting from "@/assets/exterior-painting.jpg";
-import commercialPainting from "@/assets/commercial-painting.jpg";
+import exteriorPainting from "@/assets/exterior-new.avif";
+import commercialPainting from "@/assets/commercial-new.jpg";
 import iconLiability from "@/assets/icon-liability.png";
 import iconTristate from "@/assets/icon-tristate.png";
 import iconBbb from "@/assets/icon-bbb.png";
