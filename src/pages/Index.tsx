@@ -3,6 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeader } from "@/components/Section";
 import { ServiceCard, FeatureCard, ProcessStep } from "@/components/Cards";
 import { CTASection } from "@/components/CTASection";
+import { ProjectSlideshow } from "@/components/ProjectSlideshow";
 import { ClipboardList, Calendar, Paintbrush, CheckCircle, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -178,6 +179,21 @@ const Index = () => {
               <Link to="/services">More services</Link>
             </Button>
           </div>
+        </div>
+      </section>
+
+      {/* Recent Work Slideshow Section */}
+      <section className="py-20">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Our Recent Work
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              See examples of our quality workmanship across residential and commercial properties.
+            </p>
+          </div>
+          <ProjectSlideshow />
         </div>
       </section>
 
