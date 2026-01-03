@@ -104,7 +104,6 @@ const Index = () => {
         headline="Professional Painting with Tri-State Licensed Coverage and $1M Protection"
         subHeadline="Color Masters Painting delivers quality results across the Pacific Northwest with BBB A+ rated service, fully insured crews, and 8+ years of continuous crew experience from our Desert Drywall heritage."
         backgroundImage={heroBanner}
-        showBadges={true}
       />
 
       {/* Trust & Credibility Section */}
