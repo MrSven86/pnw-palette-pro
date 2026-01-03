@@ -7,7 +7,7 @@ import { ProjectSlideshow } from "@/components/ProjectSlideshow";
 import { ClipboardList, Calendar, Paintbrush, CheckCircle, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { motion, useInView } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 import heroBanner from "@/assets/hero-banner.png";
@@ -86,24 +86,25 @@ const processSteps = [
   },
 ];
 
-// Paint Bucket Section with tipping animation
+// Paint Bucket Section with scroll-linked tipping animation
 const PaintBucketSection = ({ iconPaintBucket }: { iconPaintBucket: string }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, margin: "-40%" });
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  
+  // Map scroll progress to rotation: 0° when entering, 180° when leaving
+  const rotate = useTransform(scrollYProgress, [0.2, 0.8], [0, 180]);
 
   return (
-    <section className="py-16 text-center">
+    <section ref={sectionRef} className="py-16 text-center">
       <div className="container max-w-3xl">
         <motion.img 
-          ref={ref}
           src={iconPaintBucket} 
           alt="Paint bucket icon" 
-          className="h-16 w-auto mx-auto mb-6 origin-center"
-          animate={{ rotate: isInView ? 180 : 0 }}
-          transition={{ 
-            duration: 1.5, 
-            ease: [0.25, 0.1, 0.25, 1]
-          }}
+          className="h-16 w-auto mx-auto mb-6"
+          style={{ rotate }}
         />
         <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
           Licensed, Insured, and Trusted Across Three States
