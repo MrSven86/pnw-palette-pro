@@ -393,9 +393,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <CTASection />
     </Layout>
   );
 };
