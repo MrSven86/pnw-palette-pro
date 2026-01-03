@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface PageHeroProps {
   preHeadline?: string;
@@ -28,32 +29,55 @@ export function PageHero({
   showBadges = false,
 }: PageHeroProps) {
   return (
-    <section className="relative min-h-[85vh] flex items-center">
-      {/* Background Image */}
-      <div
+    <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+      {/* Background Image with animation */}
+      <motion.div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${backgroundImage})` }}
+        initial={{ scale: 1.1, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1, ease: "easeOut" }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
-      </div>
+      </motion.div>
 
       {/* Content */}
       <div className="container relative z-10 py-24 pt-32">
         <div className="max-w-2xl space-y-6">
           {preHeadline && (
-            <p className="flex items-center gap-2 text-white/90 font-medium text-xs md:text-sm uppercase tracking-[0.2em]">
+            <motion.p 
+              className="flex items-center gap-2 text-white/90 font-medium text-xs md:text-sm uppercase tracking-[0.2em]"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
               <span className="w-2 h-2 rounded-full bg-primary" />
               {preHeadline}
-            </p>
+            </motion.p>
           )}
-          <h1 className="font-display text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.1]">
+          <motion.h1 
+            className="font-display text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.1]"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+          >
             {headline}
-          </h1>
-          <p className="text-base md:text-lg text-white/80 max-w-xl leading-relaxed">
+          </motion.h1>
+          <motion.p 
+            className="text-base md:text-lg text-white/80 max-w-xl leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.9 }}
+          >
             {subHeadline}
-          </p>
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 pt-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.1 }}
+          >
             <Button asChild variant="hero" size="lg" className="rounded-md">
               <Link to={primaryCta.href}>{primaryCta.text}</Link>
             </Button>
@@ -69,10 +93,15 @@ export function PageHero({
                 </a>
               </Button>
             )}
-          </div>
+          </motion.div>
 
           {showBadges && (
-            <div className="pt-8 space-y-4">
+            <motion.div 
+              className="pt-8 space-y-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.3 }}
+            >
               <div className="flex flex-wrap gap-3">
                 <span className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg text-white text-sm font-medium border border-white/20">
                   BBB A+ Rated
@@ -91,7 +120,7 @@ export function PageHero({
                 $1,000,000 Liability Insurance • BuildZoom Top 16% • Serving OR,
                 WA, ID Since 2017
               </p>
-            </div>
+            </motion.div>
           )}
         </div>
       </div>
