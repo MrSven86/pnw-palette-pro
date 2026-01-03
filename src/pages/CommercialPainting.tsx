@@ -5,7 +5,7 @@ import { ProcessStep } from "@/components/Cards";
 import { EstimateSection } from "@/components/EstimateSection";
 import { Building2, Home, Factory, MapPin, Shield, Clock, FileCheck, Users } from "lucide-react";
 
-import commercialPainting from "@/assets/commercial-painting.jpg";
+import commercialHero from "@/assets/commercial-hero.jpg";
 
 const commercialServices = {
   small: [
@@ -81,7 +81,7 @@ const CommercialPainting = () => {
         preHeadline="Commercial & Industrial Painting Services"
         headline="Professional Painting for Commercial Properties Across OR, WA, and ID"
         subHeadline="From small commercial buildings to large apartment complexes and light industrial facilities, we deliver quality results that enhance property value with minimal disruption to your operations."
-        backgroundImage={commercialPainting}
+        backgroundImage={commercialHero}
         primaryCta={{ text: "Request Commercial Quote", href: "/contact" }}
       />
 
