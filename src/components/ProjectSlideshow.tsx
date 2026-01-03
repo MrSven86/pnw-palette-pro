@@ -10,6 +10,15 @@ import slideshow6 from "@/assets/slideshow-6.jpg";
 import slideshow7 from "@/assets/slideshow-7.jpg";
 import slideshow8 from "@/assets/slideshow-8.jpg";
 import slideshow9 from "@/assets/slideshow-9.jpg";
+import slideshow10 from "@/assets/slideshow-10.jpg";
+import slideshow11 from "@/assets/slideshow-11.jpg";
+import slideshow12 from "@/assets/slideshow-12.jpg";
+import slideshow13 from "@/assets/slideshow-13.jpg";
+import slideshow14 from "@/assets/slideshow-14.jpg";
+import slideshow15 from "@/assets/slideshow-15.jpg";
+import slideshow16 from "@/assets/slideshow-16.jpg";
+import slideshow17 from "@/assets/slideshow-17.jpg";
+import slideshow18 from "@/assets/slideshow-18.jpg";
 
 const slides = [
   slideshow1,
@@ -21,6 +30,15 @@ const slides = [
   slideshow7,
   slideshow8,
   slideshow9,
+  slideshow10,
+  slideshow11,
+  slideshow12,
+  slideshow13,
+  slideshow14,
+  slideshow15,
+  slideshow16,
+  slideshow17,
+  slideshow18,
 ];
 
 export const ProjectSlideshow = () => {
@@ -30,7 +48,7 @@ export const ProjectSlideshow = () => {
   const scroll = useCallback((direction: "left" | "right") => {
     if (!scrollRef.current) return;
     const container = scrollRef.current;
-    const scrollAmount = container.offsetWidth / 3;
+    const scrollAmount = container.offsetWidth / 2.5;
     
     if (direction === "right") {
       // If at the end, loop back to start
@@ -85,13 +103,13 @@ export const ProjectSlideshow = () => {
       {/* Scrolling Container */}
       <div
         ref={scrollRef}
-        className="flex gap-4 overflow-x-auto scroll-smooth scrollbar-hide pb-4"
+        className="flex gap-5 overflow-x-auto scroll-smooth scrollbar-hide pb-4"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {slides.map((slide, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-[calc(100%-2rem)] sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)] aspect-[4/3] rounded-xl overflow-hidden"
+            className="flex-shrink-0 w-[calc(100%-2rem)] sm:w-[calc(50%-1rem)] lg:w-[calc(40%-1rem)] aspect-[4/3] rounded-xl overflow-hidden shadow-md"
           >
             <img
               src={slide}
