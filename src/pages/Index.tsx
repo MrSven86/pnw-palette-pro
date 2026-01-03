@@ -230,24 +230,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Process Section */}
-      <Section variant="alt">
-        <SectionHeader
-          title="How We Make Your Painting Project Smooth and Stress-Free"
-        />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {processSteps.map((step, index) => (
-            <ProcessStep
-              key={index}
-              number={index + 1}
-              icon={step.icon}
-              title={step.title}
-              description={step.description}
-            />
-          ))}
-        </div>
-      </Section>
-
       {/* About / Why Choose Us Section */}
       <Section>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
