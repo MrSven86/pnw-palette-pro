@@ -365,60 +365,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About / Why Choose Us Section */}
-      <Section>
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 animate-slide-in-left" style={{ animationDelay: "0.2s", opacity: 0 }}>
-            <h2 className="font-display text-3xl md:text-4xl font-bold">
-              Built on Desert Drywall's Legacy of Quality Craftsmanship
-            </h2>
-            <div className="space-y-4 text-muted-foreground">
-              <p>
-                When Desert Drywall owner Brent Bieren passed away unexpectedly in March 2017, we knew we couldn't let his skilled painting crew scatter. Rick Wilson, who managed Desert Drywall's Oregon projects, partnered with Victor Perez, the painting crew manager, to create Color Masters Painting Inc.
-              </p>
-              <p>
-                Our crews have worked together continuously since before 2017, bringing that same dedication to quality that Desert Drywall built its reputation on. Today, we're proud to serve property owners across Oregon, Washington, and Idaho with the same professional standards and experienced craftsmanship.
-              </p>
-            </div>
-            <div className="space-y-3 pt-4">
-              <h3 className="font-display text-xl font-semibold">Why Property Owners Choose Color Masters:</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-accent mt-0.5 shrink-0" />
-                  <span><strong>Tri-state licensed coverage</strong> – One contractor for your entire Pacific Northwest portfolio</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-accent mt-0.5 shrink-0" />
-                  <span><strong>Experienced, stable crews</strong> – Same team working together for 8+ years</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-accent mt-0.5 shrink-0" />
-                  <span><strong>Complete protection</strong> – $1M liability insurance and proper licensing in all three states</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-accent mt-0.5 shrink-0" />
-                  <span><strong>Transparent process</strong> – Free estimates with detailed property assessments and scheduled start/finish dates</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-accent mt-0.5 shrink-0" />
-                  <span><strong>BBB A+ rated service</strong> – Maintaining accreditation since 2018</span>
-                </li>
-              </ul>
-            </div>
-            <Button asChild size="lg">
-              <Link to="/about">Learn More About Us</Link>
-            </Button>
-          </div>
-          <div className="animate-slide-in-right" style={{ animationDelay: "0.4s", opacity: 0 }}>
-            <img
-              src={exteriorPainting}
-              alt="Color Masters Painting team at work"
-              className="rounded-2xl shadow-elevated"
-            />
-          </div>
-        </div>
-      </Section>
-
       {/* CTA Section */}
       <CTASection />
     </Layout>
