@@ -183,7 +183,7 @@ const Index = () => {
       </section>
 
       {/* Recent Work Slideshow Section */}
-      <section className="py-20">
+      <section id="gallery" className="py-20">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
