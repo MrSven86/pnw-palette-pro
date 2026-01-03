@@ -110,7 +110,7 @@ const Index = () => {
       />
 
       {/* Trust & Credibility Section */}
-      <section className="relative -mt-20 z-20 pb-16">
+      <section className="relative -mt-8 z-20 pb-16">
         <div className="container">
           <div className="grid md:grid-cols-3 gap-6">
             {trustFeatures.map((feature, index) => (
