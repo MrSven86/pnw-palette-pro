@@ -8,10 +8,9 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 import heroBanner from "@/assets/hero-banner.png";
-import serviceInterior from "@/assets/service-interior.avif";
-import serviceExterior from "@/assets/service-exterior.jpg";
-import serviceCommercial from "@/assets/service-commercial.jpg";
+import interiorPainting from "@/assets/interior-painting.jpg";
 import exteriorPainting from "@/assets/exterior-painting.jpg";
+import commercialPainting from "@/assets/commercial-painting.jpg";
 import iconLiability from "@/assets/icon-liability.png";
 import iconTristate from "@/assets/icon-tristate.png";
 import iconBbb from "@/assets/icon-bbb.png";
@@ -19,19 +18,19 @@ import iconPaintBucket from "@/assets/icon-paint-bucket.png";
 
 const services = [
   {
-    image: serviceInterior,
+    image: interiorPainting,
     title: "Residential Interior Painting",
     description: "Transform your living spaces with professional interior painting. We protect your furniture, deliver clean lines, and provide smooth, long-lasting finishes that enhance your home.",
     href: "/residential",
   },
   {
-    image: serviceExterior,
+    image: exteriorPainting,
     title: "Residential Exterior Painting",
     description: "Protect and beautify your home's exterior with proper surface preparation and weather-resistant paints suited for Pacific Northwest conditions.",
     href: "/residential",
   },
   {
-    image: serviceCommercial,
+    image: commercialPainting,
     title: "Commercial & Industrial Painting",
     description: "We handle projects from small commercial properties to large apartment complexes and light industrial facilities across OR, WA, and ID.",
     href: "/commercial",
