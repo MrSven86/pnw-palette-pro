@@ -3,7 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeader } from "@/components/Section";
 import { ServiceCard, FeatureCard, ProcessStep } from "@/components/Cards";
 import { CTASection } from "@/components/CTASection";
-import { Shield, MapPin, Award, ClipboardList, Calendar, Paintbrush, CheckCircle } from "lucide-react";
+import { ClipboardList, Calendar, Paintbrush, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -14,6 +14,9 @@ import commercialPainting from "@/assets/commercial-painting.jpg";
 import epoxyFlooring from "@/assets/epoxy-flooring.jpg";
 import cabinetRefinishing from "@/assets/cabinet-refinishing.jpg";
 import trimWork from "@/assets/trim-work.jpg";
+import iconLiability from "@/assets/icon-liability.png";
+import iconTristate from "@/assets/icon-tristate.png";
+import iconBbb from "@/assets/icon-bbb.png";
 
 const services = [
   {
@@ -56,17 +59,17 @@ const services = [
 
 const trustFeatures = [
   {
-    icon: <Shield className="w-7 h-7" />,
+    icon: iconLiability,
     title: "$1M Liability Protection",
     description: "We carry $1,000,000 in general liability insurance and a $15,000 surety bond, protecting your property throughout every project.",
   },
   {
-    icon: <MapPin className="w-7 h-7" />,
+    icon: iconTristate,
     title: "Tri-State Licensed",
     description: "Fully licensed in Oregon (CCB 218151), Washington (COLORMP822NT), and Idaho (RCE-52605) for complete regional coverage.",
   },
   {
-    icon: <Award className="w-7 h-7" />,
+    icon: iconBbb,
     title: "BBB A+ Rated",
     description: "Maintaining BBB Accreditation since 2018 with A+ rating and BuildZoom score of 98, ranking in the top 16% of Oregon contractors.",
   },
@@ -107,21 +110,27 @@ const Index = () => {
       />
 
       {/* Trust & Credibility Section */}
-      <Section variant="alt">
-        <SectionHeader
-          title="Licensed, Insured, and Trusted Across Three States"
-        />
-        <div className="grid md:grid-cols-3 gap-8">
-          {trustFeatures.map((feature, index) => (
-            <FeatureCard
-              key={index}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-            />
-          ))}
+      <section className="py-16 bg-background">
+        <div className="container">
+          <div className="grid md:grid-cols-3 gap-8">
+            {trustFeatures.map((feature, index) => (
+              <div key={index} className="bg-card rounded-lg p-8 shadow-sm border border-border text-center">
+                <img 
+                  src={feature.icon} 
+                  alt={feature.title} 
+                  className="h-12 w-auto mx-auto mb-4"
+                />
+                <h3 className="font-display text-lg font-bold text-foreground mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-      </Section>
+      </section>
 
       {/* Services Overview Section */}
       <Section>
