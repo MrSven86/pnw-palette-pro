@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import slideshow1 from "@/assets/slideshow-1.jpg";
@@ -24,87 +24,82 @@ const slides = [
 ];
 
 export const ProjectSlideshow = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
 
-  const goToNext = useCallback(() => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => (prev + 1) % slides.length);
-    setTimeout(() => setIsTransitioning(false), 500);
-  }, [isTransitioning]);
+  const scroll = useCallback((direction: "left" | "right") => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const scrollAmount = container.offsetWidth / 3;
+    
+    if (direction === "right") {
+      // If at the end, loop back to start
+      if (container.scrollLeft + container.offsetWidth >= container.scrollWidth - 10) {
+        container.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    } else {
+      // If at the start, loop to end
+      if (container.scrollLeft <= 10) {
+        container.scrollTo({ left: container.scrollWidth, behavior: "smooth" });
+      } else {
+        container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      }
+    }
+  }, []);
 
-  const goToPrev = useCallback(() => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
-    setTimeout(() => setIsTransitioning(false), 500);
-  }, [isTransitioning]);
-
+  // Auto-scroll effect
   useEffect(() => {
-    const interval = setInterval(goToNext, 4000);
+    if (isPaused) return;
+    
+    const interval = setInterval(() => {
+      scroll("right");
+    }, 3000);
+
     return () => clearInterval(interval);
-  }, [goToNext]);
+  }, [scroll, isPaused]);
 
   return (
-    <div className="relative w-full overflow-hidden rounded-2xl bg-muted">
-      {/* Main Image */}
-      <div className="relative aspect-[16/9] md:aspect-[21/9]">
+    <div 
+      className="relative"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* Navigation Arrows */}
+      <button
+        onClick={() => scroll("left")}
+        className="absolute left-2 top-1/2 -translate-y-1/2 z-10 rounded-full bg-white/90 p-3 shadow-lg transition-all hover:bg-white hover:scale-110"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="h-6 w-6 text-foreground" />
+      </button>
+      <button
+        onClick={() => scroll("right")}
+        className="absolute right-2 top-1/2 -translate-y-1/2 z-10 rounded-full bg-white/90 p-3 shadow-lg transition-all hover:bg-white hover:scale-110"
+        aria-label="Next slide"
+      >
+        <ChevronRight className="h-6 w-6 text-foreground" />
+      </button>
+
+      {/* Scrolling Container */}
+      <div
+        ref={scrollRef}
+        className="flex gap-4 overflow-x-auto scroll-smooth scrollbar-hide pb-4"
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+      >
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
-              index === currentIndex ? "opacity-100" : "opacity-0"
-            }`}
+            className="flex-shrink-0 w-[calc(100%-2rem)] sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)] aspect-[4/3] rounded-xl overflow-hidden"
           >
             <img
               src={slide}
               alt={`Project ${index + 1}`}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
             />
           </div>
         ))}
-
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-
-        {/* Navigation Arrows */}
-        <button
-          onClick={goToPrev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/20 p-2 backdrop-blur-sm transition-all hover:bg-white/40"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft className="h-6 w-6 text-white" />
-        </button>
-        <button
-          onClick={goToNext}
-          className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/20 p-2 backdrop-blur-sm transition-all hover:bg-white/40"
-          aria-label="Next slide"
-        >
-          <ChevronRight className="h-6 w-6 text-white" />
-        </button>
-
-        {/* Dot Indicators */}
-        <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                if (!isTransitioning) {
-                  setIsTransitioning(true);
-                  setCurrentIndex(index);
-                  setTimeout(() => setIsTransitioning(false), 500);
-                }
-              }}
-              className={`h-2 w-2 rounded-full transition-all ${
-                index === currentIndex
-                  ? "w-6 bg-white"
-                  : "bg-white/50 hover:bg-white/75"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
       </div>
     </div>
   );
