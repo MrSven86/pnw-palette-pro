@@ -213,13 +213,6 @@ const Index = () => {
               <span>Idaho</span>
             </div>
           </div>
-          <div className="relative rounded-2xl overflow-hidden shadow-lg">
-            <img 
-              src={usMapTristate} 
-              alt="Service area map showing Oregon, Washington, and Idaho" 
-              className="w-full h-auto object-cover"
-            />
-          </div>
           <div className="grid md:grid-cols-3 gap-6 mt-8 text-center">
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="font-display font-bold text-lg text-foreground mb-2">Oregon</h3>
