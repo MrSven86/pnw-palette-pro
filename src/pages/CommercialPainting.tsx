@@ -3,6 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeader } from "@/components/Section";
 import { ProcessStep } from "@/components/Cards";
 import { EstimateSection } from "@/components/EstimateSection";
+import { ProjectSlideshow } from "@/components/ProjectSlideshow";
 import { Building2, Home, Factory, MapPin, Shield, Clock, FileCheck, Users } from "lucide-react";
 
 import commercialHero from "@/assets/commercial-hero.jpg";
@@ -164,6 +165,21 @@ const CommercialPainting = () => {
           ))}
         </div>
       </Section>
+
+      {/* Recent Work Gallery */}
+      <section className="py-20 bg-muted/30">
+        <div className="text-center mb-12 container">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Our Commercial Work
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            See examples of our quality workmanship across commercial and industrial properties.
+          </p>
+        </div>
+        <div className="px-4">
+          <ProjectSlideshow />
+        </div>
+      </section>
 
       <EstimateSection title="Get a Quote for Your Commercial Property" />
     </Layout>

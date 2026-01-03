@@ -3,6 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeader } from "@/components/Section";
 import { ProcessStep } from "@/components/Cards";
 import { EstimateSection } from "@/components/EstimateSection";
+import { ProjectSlideshow } from "@/components/ProjectSlideshow";
 import { MapPin, CheckCircle } from "lucide-react";
 
 import residentialHero from "@/assets/residential-hero.avif";
@@ -196,6 +197,21 @@ const ResidentialPainting = () => {
           </div>
         </div>
       </Section>
+
+      {/* Recent Work Gallery */}
+      <section className="py-20">
+        <div className="text-center mb-12 container">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Our Residential Work
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            See examples of our quality workmanship across residential properties.
+          </p>
+        </div>
+        <div className="px-4">
+          <ProjectSlideshow />
+        </div>
+      </section>
 
       <EstimateSection title="Ready to Refresh Your Home?" />
     </Layout>
