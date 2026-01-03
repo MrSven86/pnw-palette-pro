@@ -18,6 +18,8 @@ import iconBbb from "@/assets/icon-bbb.png";
 import iconPaintBucket from "@/assets/icon-paint-bucket.png";
 import usMapTristate from "@/assets/us-map-tristate.png";
 import estimateBg from "@/assets/estimate-bg.avif";
+import bbbAccredited from "@/assets/bbb-accredited.png";
+import bbbAplus from "@/assets/bbb-aplus.png";
 
 const services = [
   {
@@ -246,7 +248,7 @@ const Index = () => {
         <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Left Side - Why Choose Us */}
-            <div className="text-white">
+            <div className="text-white pt-12">
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-8">
                 Why Property Owners<br />Choose Color Masters:
               </h2>
@@ -273,7 +275,8 @@ const Index = () => {
                 </li>
               </ul>
               <div className="flex items-center gap-4 mt-8">
-                <img src={iconBbb} alt="BBB A+ Rating" className="h-16 w-auto" />
+                <img src={bbbAplus} alt="BBB A+ Rating" className="h-12 w-auto" />
+                <img src={bbbAccredited} alt="BBB Accredited Business" className="h-10 w-auto" />
               </div>
             </div>
 
