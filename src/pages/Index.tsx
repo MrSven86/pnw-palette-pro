@@ -184,15 +184,15 @@ const Index = () => {
 
       {/* Recent Work Slideshow Section */}
       <section id="gallery" className="py-20">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Our Recent Work
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              See examples of our quality workmanship across residential and commercial properties.
-            </p>
-          </div>
+        <div className="text-center mb-12 container">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Our Recent Work
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            See examples of our quality workmanship across residential and commercial properties.
+          </p>
+        </div>
+        <div className="px-4">
           <ProjectSlideshow />
         </div>
       </section>
