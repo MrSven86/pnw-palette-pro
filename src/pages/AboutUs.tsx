@@ -5,7 +5,7 @@ import { EstimateSection } from "@/components/EstimateSection";
 import { Shield, Users, Award, MapPin, CheckCircle, FileCheck } from "lucide-react";
 
 import aboutHero from "@/assets/about-hero.jpg";
-import heroHome from "@/assets/hero-home.jpg";
+import aboutStory from "@/assets/about-story.avif";
 
 const differentiators = [
   {
@@ -71,7 +71,7 @@ const AboutUs = () => {
           </div>
           <div>
             <img
-              src={heroHome}
+              src={aboutStory}
               alt="Color Masters Painting work"
               className="rounded-xl shadow-elevated"
             />
