@@ -109,7 +109,7 @@ export const ProjectSlideshow = () => {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-[calc(100%-2rem)] sm:w-[calc(50%-1rem)] lg:w-[calc(40%-1rem)] aspect-[4/3] rounded-xl overflow-hidden shadow-md"
+            className="flex-shrink-0 w-[calc(100%-2rem)] sm:w-[calc(50%-1rem)] lg:w-[calc(33%-1rem)] aspect-[16/10] rounded-xl overflow-hidden shadow-md"
           >
             <img
               src={slide}
