@@ -7,7 +7,7 @@ import { Shield, MapPin, Award, ClipboardList, Calendar, Paintbrush, CheckCircle
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-import heroHome from "@/assets/hero-home.jpg";
+import heroBanner from "@/assets/hero-banner.png";
 import interiorPainting from "@/assets/interior-painting.jpg";
 import exteriorPainting from "@/assets/exterior-painting.jpg";
 import commercialPainting from "@/assets/commercial-painting.jpg";
@@ -103,7 +103,7 @@ const Index = () => {
         preHeadline="Licensed Painting Contractors Serving Oregon, Washington & Idaho"
         headline="Professional Painting with Tri-State Licensed Coverage and $1M Protection"
         subHeadline="Color Masters Painting delivers quality results across the Pacific Northwest with BBB A+ rated service, fully insured crews, and 8+ years of continuous crew experience from our Desert Drywall heritage."
-        backgroundImage={heroHome}
+        backgroundImage={heroBanner}
         showBadges={true}
       />
 
