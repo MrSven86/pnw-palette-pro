@@ -89,7 +89,7 @@ const processSteps = [
 // Paint Bucket Section with tipping animation
 const PaintBucketSection = ({ iconPaintBucket }: { iconPaintBucket: string }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, margin: "-50%" });
+  const isInView = useInView(ref, { once: false, margin: "-40%" });
 
   return (
     <section className="py-16 text-center">
@@ -100,7 +100,10 @@ const PaintBucketSection = ({ iconPaintBucket }: { iconPaintBucket: string }) =>
           alt="Paint bucket icon" 
           className="h-16 w-auto mx-auto mb-6 origin-center"
           animate={{ rotate: isInView ? 180 : 0 }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
+          transition={{ 
+            duration: 1.5, 
+            ease: [0.25, 0.1, 0.25, 1]
+          }}
         />
         <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
           Licensed, Insured, and Trusted Across Three States
