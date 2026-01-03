@@ -1,12 +1,15 @@
 import { Layout } from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeader } from "@/components/Section";
-import { FeatureCard, ProcessStep } from "@/components/Cards";
+import { ProcessStep } from "@/components/Cards";
 import { EstimateSection } from "@/components/EstimateSection";
-import { Shield, Users, Calendar, MapPin, CheckCircle } from "lucide-react";
+import { MapPin, CheckCircle } from "lucide-react";
 
 import residentialHero from "@/assets/residential-hero.avif";
 import interiorPainting from "@/assets/interior-painting.jpg";
+import iconLiability from "@/assets/icon-liability.png";
+import iconTristate from "@/assets/icon-tristate.png";
+import iconBbb from "@/assets/icon-bbb.png";
 
 const interiorServices = [
   "Living rooms, bedrooms, and common areas",
@@ -30,21 +33,21 @@ const exteriorServices = [
   "Final inspection and touch-ups",
 ];
 
-const features = [
+const trustFeatures = [
   {
-    icon: <Shield className="w-7 h-7" />,
-    title: "Complete Protection",
-    description: "$1,000,000 liability insurance and tri-state licensing mean your home is protected throughout the project. We carry proper coverage so you have peace of mind.",
+    icon: iconLiability,
+    title: "$1M Liability Protection",
+    description: "We carry $1,000,000 in general liability insurance and a $15,000 surety bond, protecting your property throughout every project.",
   },
   {
-    icon: <Users className="w-7 h-7" />,
-    title: "Experienced Crews",
-    description: "Our painting crews have worked together continuously for 8+ years, bringing consistent quality and professionalism to every home project.",
+    icon: iconTristate,
+    title: "Tri-State Licensed",
+    description: "Fully licensed in Oregon (CCB 218151), Washington (COLORMP822NT), and Idaho (RCE-52605) for complete regional coverage.",
   },
   {
-    icon: <Calendar className="w-7 h-7" />,
-    title: "Transparent Process",
-    description: "We provide free estimates with detailed property assessments, scheduled start and finish dates, and clear communication throughout your project.",
+    icon: iconBbb,
+    title: "BBB A+ Rated",
+    description: "Maintaining BBB Accreditation since 2018 with A+ rating and BuildZoom score of 98, ranking in the top 16% of Oregon contractors.",
   },
 ];
 
@@ -107,19 +110,33 @@ const ResidentialPainting = () => {
       </Section>
 
       {/* Why Choose Us */}
-      <Section variant="alt">
-        <SectionHeader title="Why Homeowners Trust Color Masters Painting" />
-        <div className="grid md:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <FeatureCard
-              key={index}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-            />
-          ))}
+      <section className="relative -mt-8 z-20 pb-16">
+        <div className="container">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-8">
+            Why Homeowners Trust Color Masters Painting
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {trustFeatures.map((feature, index) => (
+              <div 
+                key={index} 
+                className="bg-white/[0.97] rounded-xl p-8 shadow-lg text-center"
+              >
+                <img 
+                  src={feature.icon} 
+                  alt={feature.title} 
+                  className="h-12 w-auto mx-auto mb-4"
+                />
+                <h3 className="font-display text-lg font-bold text-foreground mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-      </Section>
+      </section>
 
       {/* Process */}
       <Section>
