@@ -1,7 +1,7 @@
 import { Layout } from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeader } from "@/components/Section";
-import { FeatureCard, ProcessStep } from "@/components/Cards";
+import { FeatureCard } from "@/components/Cards";
 import { EstimateSection } from "@/components/EstimateSection";
 import { Shield, Droplets, Sparkles, Home, Building2, CheckCircle } from "lucide-react";
 
@@ -41,24 +41,6 @@ const commercialApplications = [
   "Commercial kitchens",
 ];
 
-const processSteps = [
-  {
-    title: "Surface Preparation",
-    description: "We thoroughly clean and prepare the concrete surface, repairing cracks and ensuring proper adhesion for the epoxy coating.",
-  },
-  {
-    title: "Application",
-    description: "We apply epoxy coating in multiple layers, ensuring even coverage and proper thickness for maximum durability.",
-  },
-  {
-    title: "Curing",
-    description: "We allow proper curing time for the epoxy to bond completely with the concrete surface, ensuring long-lasting performance.",
-  },
-  {
-    title: "Final Inspection",
-    description: "We inspect the completed floor to ensure smooth, even coverage and professional finish throughout the space.",
-  },
-];
 
 const colorOptions = [
   "Solid colors (gray, tan, blue, red, and more)",
@@ -131,20 +113,6 @@ const EpoxyFlooring = () => {
         </div>
       </Section>
 
-      {/* Process */}
-      <Section>
-        <SectionHeader title="Professional Installation for Long-Lasting Results" />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {processSteps.map((step, index) => (
-            <ProcessStep
-              key={index}
-              number={index + 1}
-              title={step.title}
-              description={step.description}
-            />
-          ))}
-        </div>
-      </Section>
 
       {/* Colors & Finishes */}
       <Section variant="alt">

@@ -1,7 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeader } from "@/components/Section";
-import { ProcessStep } from "@/components/Cards";
 import { EstimateSection } from "@/components/EstimateSection";
 import { ProjectSlideshow } from "@/components/ProjectSlideshow";
 import { MapPin, CheckCircle } from "lucide-react";
@@ -52,24 +51,6 @@ const trustFeatures = [
   },
 ];
 
-const processSteps = [
-  {
-    title: "Free Consultation & Estimate",
-    description: "We visit your home to assess the scope of work, discuss your color preferences, and provide a detailed written estimate with no obligation.",
-  },
-  {
-    title: "Preparation & Protection",
-    description: "We protect your furniture, flooring, and fixtures. For exteriors, we safeguard landscaping and prepare all surfaces properly for long-lasting results.",
-  },
-  {
-    title: "Professional Application",
-    description: "Our experienced crews apply quality paints with attention to detail, ensuring clean lines, smooth coverage, and uniform finish throughout your home.",
-  },
-  {
-    title: "Final Walkthrough",
-    description: "We inspect the completed work with you, address any concerns, and don't consider the job done until you're completely satisfied.",
-  },
-];
 
 const ResidentialPainting = () => {
   return (
@@ -139,20 +120,6 @@ const ResidentialPainting = () => {
         </div>
       </section>
 
-      {/* Process */}
-      <Section>
-        <SectionHeader title="How We Transform Your Home" />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {processSteps.map((step, index) => (
-            <ProcessStep
-              key={index}
-              number={index + 1}
-              title={step.title}
-              description={step.description}
-            />
-          ))}
-        </div>
-      </Section>
 
       {/* Interior vs Exterior */}
       <Section variant="alt">
