@@ -3,6 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeader } from "@/components/Section";
 import { ServiceCard } from "@/components/Cards";
 import { CTASection } from "@/components/CTASection";
+import { ProjectSlideshow } from "@/components/ProjectSlideshow";
 
 import heroHome from "@/assets/hero-home.jpg";
 import interiorPainting from "@/assets/interior-painting.jpg";
@@ -77,6 +78,14 @@ const Services = () => {
             />
           ))}
         </div>
+      </Section>
+
+      <Section className="bg-muted/30">
+        <SectionHeader
+          title="Our Recent Projects"
+          subtitle="See examples of our quality workmanship across residential and commercial properties."
+        />
+        <ProjectSlideshow />
       </Section>
 
       <CTASection />
