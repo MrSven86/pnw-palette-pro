@@ -4,14 +4,10 @@ import { Phone, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "Residential", href: "/residential" },
-  { name: "Commercial", href: "/commercial" },
-  { name: "Epoxy Flooring", href: "/epoxy" },
-  { name: "Cabinet Refinishing", href: "/cabinets" },
   { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
+  { name: "Commercial Painting", href: "/commercial" },
+  { name: "Residential Painting", href: "/residential" },
+  { name: "Epoxy Flooring", href: "/epoxy" },
 ];
 
 export function Header() {
@@ -19,28 +15,21 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-sm">
       <nav className="container flex items-center justify-between py-4">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="font-display text-xl md:text-2xl font-bold text-secondary">
+        <Link to="/" className="flex items-center">
+          <span className="font-display text-xl md:text-2xl font-bold text-white">
             Color Masters
-          </span>
-          <span className="hidden sm:inline font-body text-sm text-muted-foreground">
-            Painting Inc.
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-6">
-          {navigation.slice(0, 7).map((item) => (
+        <div className="hidden lg:flex items-center gap-8">
+          {navigation.map((item) => (
             <Link
               key={item.name}
               to={item.href}
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                location.pathname === item.href
-                  ? "text-primary"
-                  : "text-foreground"
-              }`}
+              className="font-body font-bold text-[13px] text-white/90 hover:text-white transition-colors"
             >
               {item.name}
             </Link>
@@ -50,13 +39,13 @@ export function Header() {
         <div className="hidden lg:flex items-center gap-4">
           <a
             href="tel:509-554-1969"
-            className="flex items-center gap-2 text-sm font-medium text-secondary hover:text-secondary/80 transition-colors"
+            className="flex items-center gap-2 font-body font-bold text-[13px] text-white/90 hover:text-white transition-colors"
           >
             <Phone className="h-4 w-4" />
-            509-554-1969
+            (509) 554-1969
           </a>
-          <Button asChild>
-            <Link to="/contact">Free Estimate</Link>
+          <Button asChild className="rounded-md px-5">
+            <Link to="/contact">Book now</Link>
           </Button>
         </div>
 
@@ -66,41 +55,37 @@ export function Header() {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? (
-            <X className="h-6 w-6 text-foreground" />
+            <X className="h-6 w-6 text-white" />
           ) : (
-            <Menu className="h-6 w-6 text-foreground" />
+            <Menu className="h-6 w-6 text-white" />
           )}
         </button>
       </nav>
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-card border-b border-border">
+        <div className="lg:hidden bg-black/90 backdrop-blur-sm">
           <div className="container py-4 space-y-4">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`block text-base font-medium transition-colors hover:text-primary ${
-                  location.pathname === item.href
-                    ? "text-primary"
-                    : "text-foreground"
-                }`}
+                className="block font-body font-bold text-[13px] text-white/90 hover:text-white transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            <div className="pt-4 border-t border-border space-y-4">
+            <div className="pt-4 border-t border-white/20 space-y-4">
               <a
                 href="tel:509-554-1969"
-                className="flex items-center gap-2 text-base font-medium text-secondary"
+                className="flex items-center gap-2 font-body font-bold text-[13px] text-white/90"
               >
                 <Phone className="h-5 w-5" />
-                509-554-1969
+                (509) 554-1969
               </a>
               <Button asChild className="w-full">
-                <Link to="/contact">Get Free Estimate</Link>
+                <Link to="/contact">Book now</Link>
               </Button>
             </div>
           </div>
