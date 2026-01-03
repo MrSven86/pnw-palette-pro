@@ -20,6 +20,7 @@ import usMapTristate from "@/assets/us-map-tristate.png";
 import estimateBg from "@/assets/estimate-bg.avif";
 import bbbAccredited from "@/assets/bbb-accredited.png";
 import bbbAplus from "@/assets/bbb-aplus.png";
+import colorMastersTrucks from "@/assets/color-masters-trucks.jpg";
 
 const services = [
   {
@@ -198,6 +199,34 @@ const Index = () => {
         </div>
         <div className="px-4">
           <ProjectSlideshow />
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
+                Built on Desert Drywall's Legacy of Quality Craftsmanship
+              </h2>
+              <div className="space-y-4 text-muted-foreground">
+                <p>
+                  When Desert Drywall owner Brent Bieren passed away unexpectedly in March 2017, we knew we couldn't let his skilled painting crew scatter. Rick Wilson, who managed Desert Drywall's Oregon projects, partnered with Victor Perez, the painting crew manager, to create Color Masters Painting Inc.
+                </p>
+                <p>
+                  Our crews have worked together continuously since before 2017, bringing that same dedication to quality that Desert Drywall built its reputation on. Today, we're proud to serve property owners across Oregon, Washington, and Idaho with the same professional standards and experienced craftsmanship.
+                </p>
+              </div>
+            </div>
+            <div>
+              <img 
+                src={colorMastersTrucks} 
+                alt="Color Masters Painting trucks at a job site" 
+                className="rounded-xl shadow-lg w-full"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
