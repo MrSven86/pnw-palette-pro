@@ -25,7 +25,7 @@ export function Footer() {
 
           {/* Contact Us */}
           <div className="space-y-4">
-            <h4 className="font-display text-lg font-bold text-primary uppercase tracking-wide">
+            <h4 className="font-display text-lg font-bold text-white uppercase tracking-wide">
               Contact Us
             </h4>
             <div className="space-y-3 text-sm">
@@ -69,7 +69,7 @@ export function Footer() {
 
             {/* Licenses */}
             <div className="pt-4">
-              <h4 className="font-display text-lg font-bold text-primary uppercase tracking-wide mb-3">
+              <h4 className="font-display text-lg font-bold text-white uppercase tracking-wide mb-3">
                 Licenses
               </h4>
               <ul className="space-y-1 text-sm text-white/70">
@@ -91,7 +91,7 @@ export function Footer() {
 
           {/* Service Areas */}
           <div className="lg:col-span-2 space-y-4">
-            <h4 className="font-display text-lg font-bold text-primary uppercase tracking-wide">
+            <h4 className="font-display text-lg font-bold text-white uppercase tracking-wide">
               Service Areas
             </h4>
             <p className="text-sm text-white/70 leading-relaxed">
