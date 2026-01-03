@@ -33,40 +33,44 @@ export function Header() {
     >
       <nav className="container flex items-center justify-between py-4">
         <Link to="/" className="flex items-center">
-          <motion.span 
-            className="font-display text-xl md:text-2xl font-bold"
-            animate={{ color: scrolled ? "hsl(var(--foreground))" : "#ffffff" }}
-            transition={{ duration: 0.3 }}
+          <span 
+            className={`font-display text-xl md:text-2xl font-bold transition-all duration-300 ${
+              scrolled ? "text-foreground" : "text-white"
+            }`}
           >
             Color Masters
-          </motion.span>
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-8">
           {navigation.map((item) => (
-            <motion.div key={item.name}>
-              <Link
-                to={item.href}
-                className="font-body font-bold text-[13px] transition-colors"
-                style={{ color: scrolled ? "hsl(var(--foreground) / 0.8)" : "rgba(255, 255, 255, 0.9)" }}
-              >
-                {item.name}
-              </Link>
-            </motion.div>
+            <Link
+              key={item.name}
+              to={item.href}
+              className={`font-body font-bold text-[13px] transition-all duration-300 ${
+                scrolled 
+                  ? "text-foreground/80 hover:text-foreground" 
+                  : "text-white/90 hover:text-white"
+              }`}
+            >
+              {item.name}
+            </Link>
           ))}
         </div>
 
         <div className="hidden lg:flex items-center gap-4">
-          <motion.a
+          <a
             href="tel:509-554-1969"
-            className="flex items-center gap-2 font-body font-bold text-[13px] transition-colors"
-            animate={{ color: scrolled ? "hsl(var(--foreground) / 0.8)" : "rgba(255, 255, 255, 0.9)" }}
-            transition={{ duration: 0.3 }}
+            className={`flex items-center gap-2 font-body font-bold text-[13px] transition-all duration-300 ${
+              scrolled 
+                ? "text-foreground/80 hover:text-foreground" 
+                : "text-white/90 hover:text-white"
+            }`}
           >
             <Phone className="h-4 w-4" />
             (509) 554-1969
-          </motion.a>
+          </a>
           <Button asChild className="rounded-md px-5">
             <Link to="/contact">Book now</Link>
           </Button>
