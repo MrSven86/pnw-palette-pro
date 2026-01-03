@@ -1,7 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Phone, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
 const navigation = [
   { name: "About", href: "/about" },
@@ -13,37 +14,59 @@ const navigation = [
 export function Header() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setScrolled(latest > 50);
+  });
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+    <motion.header 
+      className="fixed top-0 left-0 right-0 z-50"
+      initial={{ backgroundColor: "transparent" }}
+      animate={{ 
+        backgroundColor: scrolled ? "rgba(255, 255, 255, 1)" : "transparent",
+        boxShadow: scrolled ? "0 4px 20px rgba(0, 0, 0, 0.1)" : "none"
+      }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+    >
       <nav className="container flex items-center justify-between py-4">
         <Link to="/" className="flex items-center">
-          <span className="font-display text-xl md:text-2xl font-bold text-white">
+          <motion.span 
+            className="font-display text-xl md:text-2xl font-bold"
+            animate={{ color: scrolled ? "hsl(var(--foreground))" : "#ffffff" }}
+            transition={{ duration: 0.3 }}
+          >
             Color Masters
-          </span>
+          </motion.span>
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-8">
           {navigation.map((item) => (
-            <Link
-              key={item.name}
-              to={item.href}
-              className="font-body font-bold text-[13px] text-white/90 hover:text-white transition-colors"
-            >
-              {item.name}
-            </Link>
+            <motion.div key={item.name}>
+              <Link
+                to={item.href}
+                className="font-body font-bold text-[13px] transition-colors"
+                style={{ color: scrolled ? "hsl(var(--foreground) / 0.8)" : "rgba(255, 255, 255, 0.9)" }}
+              >
+                {item.name}
+              </Link>
+            </motion.div>
           ))}
         </div>
 
         <div className="hidden lg:flex items-center gap-4">
-          <a
+          <motion.a
             href="tel:509-554-1969"
-            className="flex items-center gap-2 font-body font-bold text-[13px] text-white/90 hover:text-white transition-colors"
+            className="flex items-center gap-2 font-body font-bold text-[13px] transition-colors"
+            animate={{ color: scrolled ? "hsl(var(--foreground) / 0.8)" : "rgba(255, 255, 255, 0.9)" }}
+            transition={{ duration: 0.3 }}
           >
             <Phone className="h-4 w-4" />
             (509) 554-1969
-          </a>
+          </motion.a>
           <Button asChild className="rounded-md px-5">
             <Link to="/contact">Book now</Link>
           </Button>
@@ -55,31 +78,35 @@ export function Header() {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? (
-            <X className="h-6 w-6 text-white" />
+            <X className={`h-6 w-6 ${scrolled ? "text-foreground" : "text-white"}`} />
           ) : (
-            <Menu className="h-6 w-6 text-white" />
+            <Menu className={`h-6 w-6 ${scrolled ? "text-foreground" : "text-white"}`} />
           )}
         </button>
       </nav>
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-black/90 backdrop-blur-sm">
+        <div className={`lg:hidden ${scrolled ? "bg-white" : "bg-black/90 backdrop-blur-sm"}`}>
           <div className="container py-4 space-y-4">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className="block font-body font-bold text-[13px] text-white/90 hover:text-white transition-colors"
+                className={`block font-body font-bold text-[13px] transition-colors ${
+                  scrolled ? "text-foreground/80 hover:text-foreground" : "text-white/90 hover:text-white"
+                }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            <div className="pt-4 border-t border-white/20 space-y-4">
+            <div className={`pt-4 border-t ${scrolled ? "border-foreground/20" : "border-white/20"} space-y-4`}>
               <a
                 href="tel:509-554-1969"
-                className="flex items-center gap-2 font-body font-bold text-[13px] text-white/90"
+                className={`flex items-center gap-2 font-body font-bold text-[13px] ${
+                  scrolled ? "text-foreground/80" : "text-white/90"
+                }`}
               >
                 <Phone className="h-5 w-5" />
                 (509) 554-1969
@@ -91,6 +118,6 @@ export function Header() {
           </div>
         </div>
       )}
-    </header>
+    </motion.header>
   );
 }
