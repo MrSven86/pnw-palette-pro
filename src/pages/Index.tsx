@@ -3,6 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeader } from "@/components/Section";
 import { ServiceCard, FeatureCard, ProcessStep } from "@/components/Cards";
 import { CTASection } from "@/components/CTASection";
+import TriStateMap from "@/components/TriStateMap";
 import { ClipboardList, Calendar, Paintbrush, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -137,8 +138,11 @@ const Index = () => {
       </section>
 
       {/* Licensed & Trusted Section */}
-      <section className="py-16 text-center">
-        <div className="container max-w-3xl">
+      <section className="py-16 text-center relative overflow-hidden">
+        {/* Background Map */}
+        <TriStateMap className="absolute inset-0 w-full h-full opacity-[0.08] pointer-events-none" />
+        
+        <div className="container max-w-3xl relative z-10">
           <img 
             src={iconPaintBucket} 
             alt="Paint bucket icon" 
