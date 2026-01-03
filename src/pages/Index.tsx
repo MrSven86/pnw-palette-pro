@@ -3,17 +3,15 @@ import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeader } from "@/components/Section";
 import { ServiceCard, FeatureCard, ProcessStep } from "@/components/Cards";
 import { CTASection } from "@/components/CTASection";
-import { ClipboardList, Calendar, Paintbrush, CheckCircle } from "lucide-react";
+import { ClipboardList, Calendar, Paintbrush, CheckCircle, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 import heroBanner from "@/assets/hero-banner.png";
-import interiorPainting from "@/assets/interior-painting.jpg";
+import serviceInterior from "@/assets/service-interior.avif";
+import serviceExterior from "@/assets/service-exterior.jpg";
+import serviceCommercial from "@/assets/service-commercial.jpg";
 import exteriorPainting from "@/assets/exterior-painting.jpg";
-import commercialPainting from "@/assets/commercial-painting.jpg";
-import epoxyFlooring from "@/assets/epoxy-flooring.jpg";
-import cabinetRefinishing from "@/assets/cabinet-refinishing.jpg";
-import trimWork from "@/assets/trim-work.jpg";
 import iconLiability from "@/assets/icon-liability.png";
 import iconTristate from "@/assets/icon-tristate.png";
 import iconBbb from "@/assets/icon-bbb.png";
@@ -21,40 +19,22 @@ import iconPaintBucket from "@/assets/icon-paint-bucket.png";
 
 const services = [
   {
-    image: interiorPainting,
+    image: serviceInterior,
     title: "Residential Interior Painting",
     description: "Transform your living spaces with professional interior painting. We protect your furniture, deliver clean lines, and provide smooth, long-lasting finishes that enhance your home.",
     href: "/residential",
   },
   {
-    image: exteriorPainting,
+    image: serviceExterior,
     title: "Residential Exterior Painting",
     description: "Protect and beautify your home's exterior with proper surface preparation and weather-resistant paints suited for Pacific Northwest conditions.",
     href: "/residential",
   },
   {
-    image: commercialPainting,
+    image: serviceCommercial,
     title: "Commercial & Industrial Painting",
     description: "We handle projects from small commercial properties to large apartment complexes and light industrial facilities across OR, WA, and ID.",
     href: "/commercial",
-  },
-  {
-    image: epoxyFlooring,
-    title: "Epoxy Flooring",
-    description: "Transform garages, basements, and workspaces with durable, chemical-resistant epoxy flooring that withstands heavy traffic and looks professional for years.",
-    href: "/epoxy",
-  },
-  {
-    image: cabinetRefinishing,
-    title: "Cabinet Refinishing",
-    description: "Refresh your kitchen or bathroom cabinets on-site or in our specialized facility with custom colors and finishes.",
-    href: "/cabinets",
-  },
-  {
-    image: trimWork,
-    title: "Trim & Specialty Work",
-    description: "Complete trim packages including baseboards, crown molding, window casings, door frames, fence staining, and rough beam lams.",
-    href: "/residential",
   },
 ];
 
@@ -154,23 +134,53 @@ const Index = () => {
       </section>
 
       {/* Services Overview Section */}
-      <Section>
-        <SectionHeader
-          title="Professional Painting Services Across Oregon, Washington, and Idaho"
-          subtitle="From residential repaints to commercial projects and specialty finishes, we deliver quality results with experienced crews."
-        />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <ServiceCard
-              key={index}
-              image={service.image}
-              title={service.title}
-              description={service.description}
-              href={service.href}
-            />
-          ))}
+      <section className="py-20 bg-muted/30">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Professional Painting Services Across<br />Oregon, Washington, and Idaho
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              From residential repaints to commercial projects and specialty finishes, we deliver quality results with experienced crews.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 mb-10">
+            {services.map((service, index) => (
+              <div key={index} className="bg-white rounded-xl shadow-sm overflow-hidden">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display text-xl font-bold text-foreground mb-3">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                    {service.description}
+                  </p>
+                  <Link 
+                    to={service.href} 
+                    className="inline-flex items-center text-primary font-medium text-sm hover:underline"
+                  >
+                    Learn More
+                    <ChevronRight className="w-4 h-4 ml-1" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center">
+            <Button asChild variant="outline" size="lg" className="px-10">
+              <Link to="/services">More services</Link>
+            </Button>
+          </div>
         </div>
-      </Section>
+      </section>
 
       {/* Process Section */}
       <Section variant="alt">
