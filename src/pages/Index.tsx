@@ -187,12 +187,12 @@ const Index = () => {
           
           <div className="grid md:grid-cols-3 gap-8 mb-10">
             {services.map((service, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-sm overflow-hidden">
+              <div key={index} className="bg-white rounded-xl shadow-sm overflow-hidden group">
                 <div className="aspect-[4/3] overflow-hidden">
                   <img 
                     src={service.image} 
                     alt={service.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                   />
                 </div>
                 <div className="p-6">
