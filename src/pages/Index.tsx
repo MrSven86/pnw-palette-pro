@@ -98,20 +98,36 @@ const PaintBucketSection = ({ iconPaintBucket }: { iconPaintBucket: string }) =>
   const rotate = useTransform(scrollYProgress, [0.2, 0.8], [0, 180]);
 
   return (
-    <section ref={sectionRef} className="py-16 text-center">
+    <section ref={sectionRef} className="py-16 text-center overflow-hidden">
       <div className="container max-w-3xl">
         <motion.img 
           src={iconPaintBucket} 
           alt="Paint bucket icon" 
           className="h-16 w-auto mx-auto mb-6"
           style={{ rotate }}
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         />
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
+        <motion.h2 
+          className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+        >
           Licensed, Insured, and Trusted Across Three States
-        </h2>
-        <p className="text-muted-foreground leading-relaxed">
+        </motion.h2>
+        <motion.p 
+          className="text-muted-foreground leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+        >
           Our crews have worked together continuously since before 2017, bringing that same dedication to quality that Desert Drywall built its reputation on. Today, we're proud to serve property owners across Oregon, Washington, and Idaho with the same professional standards and experienced craftsmanship.
-        </p>
+        </motion.p>
       </div>
     </section>
   );
