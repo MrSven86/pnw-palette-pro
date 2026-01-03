@@ -16,6 +16,7 @@ import iconLiability from "@/assets/icon-liability.png";
 import iconTristate from "@/assets/icon-tristate.png";
 import iconBbb from "@/assets/icon-bbb.png";
 import iconPaintBucket from "@/assets/icon-paint-bucket.png";
+import usMapTristate from "@/assets/us-map-tristate.png";
 
 const services = [
   {
@@ -194,6 +195,45 @@ const Index = () => {
         </div>
         <div className="px-4">
           <ProjectSlideshow />
+        </div>
+      </section>
+
+      {/* Service Area Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container">
+          <div className="text-center mb-8">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Serving the Entire Pacific Northwest
+            </h2>
+            <div className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold">
+              <span>Oregon</span>
+              <span className="w-1 h-1 bg-primary-foreground rounded-full" />
+              <span>Washington</span>
+              <span className="w-1 h-1 bg-primary-foreground rounded-full" />
+              <span>Idaho</span>
+            </div>
+          </div>
+          <div className="relative rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src={usMapTristate} 
+              alt="Service area map showing Oregon, Washington, and Idaho" 
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 mt-8 text-center">
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="font-display font-bold text-lg text-foreground mb-2">Oregon</h3>
+              <p className="text-muted-foreground text-sm">CCB License #218151</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="font-display font-bold text-lg text-foreground mb-2">Washington</h3>
+              <p className="text-muted-foreground text-sm">License #COLORMP822NT</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <h3 className="font-display font-bold text-lg text-foreground mb-2">Idaho</h3>
+              <p className="text-muted-foreground text-sm">RCE License #52605</p>
+            </div>
+          </div>
         </div>
       </section>
 
