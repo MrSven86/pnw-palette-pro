@@ -1,7 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeader } from "@/components/Section";
-import { ProcessStep } from "@/components/Cards";
 import { EstimateSection } from "@/components/EstimateSection";
 import { Home, Building2, CheckCircle, Paintbrush, Palette } from "lucide-react";
 
@@ -30,24 +29,6 @@ const cabinetTypes = [
   "Commercial millwork",
 ];
 
-const processSteps = [
-  {
-    title: "Assessment",
-    description: "We evaluate your cabinets' condition and discuss your color and finish preferences to determine the best refinishing approach.",
-  },
-  {
-    title: "Preparation",
-    description: "Surfaces are properly cleaned, sanded, and prepared. Hardware is removed and labeled for reinstallation.",
-  },
-  {
-    title: "Refinishing",
-    description: "We apply stain or paint with multiple coats, ensuring even coverage and durable finish that will last for years.",
-  },
-  {
-    title: "Reinstallation & Inspection",
-    description: "For facility work, we carefully reinstall cabinets. All hardware is reattached and we inspect to ensure quality results.",
-  },
-];
 
 const stainOptions = [
   "Natural wood tones",
@@ -153,20 +134,6 @@ const CabinetRefinishing = () => {
         </div>
       </Section>
 
-      {/* Process */}
-      <Section>
-        <SectionHeader title="From Worn to Beautiful" />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {processSteps.map((step, index) => (
-            <ProcessStep
-              key={index}
-              number={index + 1}
-              title={step.title}
-              description={step.description}
-            />
-          ))}
-        </div>
-      </Section>
 
       {/* Color & Finish Options */}
       <Section variant="alt">

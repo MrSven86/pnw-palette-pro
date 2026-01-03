@@ -1,7 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeader } from "@/components/Section";
-import { ProcessStep } from "@/components/Cards";
 import { EstimateSection } from "@/components/EstimateSection";
 import { ProjectSlideshow } from "@/components/ProjectSlideshow";
 import { Building2, Home, Factory, MapPin, Shield, Clock, FileCheck, Users } from "lucide-react";
@@ -56,24 +55,6 @@ const features = [
   },
 ];
 
-const processSteps = [
-  {
-    title: "Property Assessment",
-    description: "We evaluate your property's needs, discuss scheduling requirements, and provide a detailed written proposal for your review.",
-  },
-  {
-    title: "Scheduling Coordination",
-    description: "We work with your timeline to minimize operational disruption, coordinating with property managers and tenants as needed.",
-  },
-  {
-    title: "Professional Execution",
-    description: "Our crews arrive on schedule, protect your property, and complete work efficiently with attention to quality and safety standards.",
-  },
-  {
-    title: "Final Inspection",
-    description: "We conduct a thorough walkthrough to ensure all work meets specifications and address any final details before project completion.",
-  },
-];
 
 const CommercialPainting = () => {
   return (
@@ -151,20 +132,6 @@ const CommercialPainting = () => {
         </div>
       </Section>
 
-      {/* Process */}
-      <Section>
-        <SectionHeader title="From Quote to Completion" />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {processSteps.map((step, index) => (
-            <ProcessStep
-              key={index}
-              number={index + 1}
-              title={step.title}
-              description={step.description}
-            />
-          ))}
-        </div>
-      </Section>
 
       {/* Recent Work Gallery */}
       <section className="py-20 bg-muted/30">
