@@ -5,7 +5,7 @@ import { FeatureCard, ProcessStep } from "@/components/Cards";
 import { EstimateSection } from "@/components/EstimateSection";
 import { Shield, Users, Calendar, MapPin, CheckCircle } from "lucide-react";
 
-import heroHome from "@/assets/hero-home.jpg";
+import residentialHero from "@/assets/residential-hero.avif";
 import interiorPainting from "@/assets/interior-painting.jpg";
 
 const interiorServices = [
@@ -74,7 +74,7 @@ const ResidentialPainting = () => {
         preHeadline="Professional Residential Painting Services"
         headline="Interior & Exterior Painting for Homes Across Oregon, Washington, and Idaho"
         subHeadline="Protect and beautify your home with licensed, insured painting crews experienced in Pacific Northwest conditions. We handle proper surface preparation, use quality paints, and deliver clean, long-lasting results."
-        backgroundImage={heroHome}
+        backgroundImage={residentialHero}
       />
 
       {/* What's Included Section */}
@@ -151,7 +151,7 @@ const ResidentialPainting = () => {
             </div>
           </div>
           <div className="space-y-6">
-            <img src={heroHome} alt="Exterior painting" className="rounded-xl shadow-card w-full aspect-video object-cover" />
+            <img src={residentialHero} alt="Exterior painting" className="rounded-xl shadow-card w-full aspect-video object-cover" />
             <h3 className="font-display text-2xl font-semibold">Exterior Painting</h3>
             <div className="space-y-4 text-muted-foreground">
               <p><strong className="text-foreground">Best Timing:</strong> Late spring through early fall when weather is dry and temperatures are stable. Pacific Northwest conditions require careful scheduling.</p>
