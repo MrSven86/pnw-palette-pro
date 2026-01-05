@@ -66,11 +66,10 @@ const ResidentialPainting = () => {
       {/* Intro Section */}
       <Section className="overflow-visible">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1 relative py-8 px-8">
-            {/* Decorative background shapes */}
-            <div className="absolute top-0 left-0 w-[85%] h-[85%] bg-secondary rounded-2xl" />
-            <div className="absolute bottom-0 right-0 w-24 h-32 bg-primary rounded-xl" />
-            <img 
+          <div className="order-2 lg:order-1 relative py-4 pl-4">
+            {/* Decorative background shape */}
+            <div className="absolute top-0 left-0 w-[70%] h-[80%] bg-secondary/20 rounded-2xl" />
+            <img
               src={residentialHouse} 
               alt="Residential house painting project" 
               className="rounded-xl shadow-card w-full aspect-[4/3] object-cover relative z-10"
