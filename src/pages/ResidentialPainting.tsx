@@ -6,6 +6,7 @@ import { ProjectSlideshow } from "@/components/ProjectSlideshow";
 import { MapPin, CheckCircle } from "lucide-react";
 
 import residentialHero from "@/assets/residential-hero.avif";
+import residentialHouse from "@/assets/residential-house.jpg";
 import interiorPainting from "@/assets/interior-painting.jpg";
 import iconLiability from "@/assets/icon-liability.png";
 import iconTristate from "@/assets/icon-tristate.png";
@@ -62,37 +63,32 @@ const ResidentialPainting = () => {
         backgroundImage={residentialHero}
       />
 
-      {/* What's Included Section */}
+      {/* Intro Section */}
       <Section>
-        <SectionHeader title="Complete Residential Painting Services" />
-        <div className="grid lg:grid-cols-2 gap-12">
-          <div className="bg-card rounded-xl p-8 shadow-card">
-            <h3 className="font-display text-2xl font-semibold mb-6 text-secondary">Interior Painting Includes:</h3>
-            <ul className="space-y-3">
-              {interiorServices.map((service, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-accent mt-0.5 shrink-0" />
-                  <span className="text-muted-foreground">{service}</span>
-                </li>
-              ))}
-            </ul>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="order-2 lg:order-1">
+            <img 
+              src={residentialHouse} 
+              alt="Residential house painting project" 
+              className="rounded-xl shadow-card w-full aspect-[4/3] object-cover"
+            />
           </div>
-          <div className="bg-card rounded-xl p-8 shadow-card">
-            <h3 className="font-display text-2xl font-semibold mb-6 text-secondary">Exterior Painting Includes:</h3>
-            <ul className="space-y-3">
-              {exteriorServices.map((service, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-accent mt-0.5 shrink-0" />
-                  <span className="text-muted-foreground">{service}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="order-1 lg:order-2 space-y-6">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+              Residential Interior & Exterior Painting
+            </h1>
+            <p className="text-lg font-medium text-secondary">
+              Professional Home Painting Services Across OR, WA & ID
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Color Masters Painting provides complete residential painting services throughout Northeast Oregon, Tri-Cities Washington, and Idaho. We handle everything from single-room updates to whole-house interior and exterior repaints, always with proper surface preparation, quality materials, and attention to detail.
+            </p>
           </div>
         </div>
       </Section>
 
       {/* Why Choose Us */}
-      <section className="relative -mt-8 z-20 pb-16">
+      <section className="relative z-20 pb-16">
         <div className="container">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-8">
             Why Homeowners Trust Color Masters Painting
@@ -161,6 +157,35 @@ const ResidentialPainting = () => {
             <span className="px-4 py-2 bg-background-alt rounded-lg">Tri-Cities, Washington</span>
             <span className="px-4 py-2 bg-background-alt rounded-lg">Boise region, Idaho</span>
             <span className="px-4 py-2 bg-background-alt rounded-lg">Surrounding Pacific Northwest communities</span>
+          </div>
+        </div>
+      </Section>
+
+      {/* What's Included Section - moved above Our Residential Work */}
+      <Section variant="alt">
+        <SectionHeader title="Complete Residential Painting Services" />
+        <div className="grid lg:grid-cols-2 gap-12">
+          <div className="bg-card rounded-xl p-8 shadow-card">
+            <h3 className="font-display text-2xl font-semibold mb-6 text-secondary">Interior Painting Includes:</h3>
+            <ul className="space-y-3">
+              {interiorServices.map((service, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-accent mt-0.5 shrink-0" />
+                  <span className="text-muted-foreground">{service}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="bg-card rounded-xl p-8 shadow-card">
+            <h3 className="font-display text-2xl font-semibold mb-6 text-secondary">Exterior Painting Includes:</h3>
+            <ul className="space-y-3">
+              {exteriorServices.map((service, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-accent mt-0.5 shrink-0" />
+                  <span className="text-muted-foreground">{service}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </Section>
