@@ -86,13 +86,23 @@ const CommercialPainting = () => {
 
       {/* Intro Section */}
       <Section>
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <motion.div 
+          className="grid lg:grid-cols-2 gap-12 items-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <motion.div 
             className="order-2 lg:order-1"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            variants={{
+              hidden: { opacity: 0, x: -60, scale: 0.95 },
+              visible: { 
+                opacity: 1, 
+                x: 0, 
+                scale: 1,
+                transition: { duration: 0.7, ease: "easeOut" as const }
+              },
+            }}
           >
             <img 
               src={commercialBuilding} 
@@ -102,10 +112,15 @@ const CommercialPainting = () => {
           </motion.div>
           <motion.div 
             className="order-1 lg:order-2 space-y-6"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            variants={{
+              hidden: { opacity: 0, x: 60, scale: 0.95 },
+              visible: { 
+                opacity: 1, 
+                x: 0, 
+                scale: 1,
+                transition: { duration: 0.7, ease: "easeOut" as const, delay: 0.1 }
+              },
+            }}
           >
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
               Commercial & Industrial Painting Services
@@ -117,7 +132,7 @@ const CommercialPainting = () => {
               Color Masters Painting handles commercial and light industrial painting projects across Northeast Oregon, Tri-Cities Washington, and Idaho. We understand commercial clients need scheduled completion dates, minimal operational disruption, and contractors who deliver quality work without excuses.
             </p>
           </motion.div>
-        </div>
+        </motion.div>
       </Section>
 
       {/* Why Choose Us */}
