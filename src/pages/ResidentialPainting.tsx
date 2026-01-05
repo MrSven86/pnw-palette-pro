@@ -66,11 +66,14 @@ const ResidentialPainting = () => {
       {/* Intro Section */}
       <Section>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1">
+          <div className="order-2 lg:order-1 relative">
+            {/* Decorative background shapes */}
+            <div className="absolute -top-6 -left-6 w-[85%] h-[85%] bg-secondary rounded-2xl -z-10" />
+            <div className="absolute -bottom-4 -right-4 w-24 h-32 bg-primary rounded-xl -z-10" />
             <img 
               src={residentialHouse} 
               alt="Residential house painting project" 
-              className="rounded-xl shadow-card w-full aspect-[4/3] object-cover"
+              className="rounded-xl shadow-card w-full aspect-[4/3] object-cover relative z-10"
             />
           </div>
           <div className="order-1 lg:order-2 space-y-6">
