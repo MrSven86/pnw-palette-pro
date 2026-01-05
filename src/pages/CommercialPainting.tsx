@@ -3,10 +3,13 @@ import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeader } from "@/components/Section";
 import { EstimateSection } from "@/components/EstimateSection";
 import { ProjectSlideshow } from "@/components/ProjectSlideshow";
-import { Building2, Home, Factory, MapPin, Shield, Clock, Users } from "lucide-react";
+import { Building2, Home, Factory } from "lucide-react";
 
 import commercialHero from "@/assets/commercial-hero.jpg";
 import commercialBuilding from "@/assets/commercial-building.jpg";
+import iconLiability from "@/assets/icon-liability.png";
+import iconTristate from "@/assets/icon-tristate.png";
+import iconBbb from "@/assets/icon-bbb.png";
 
 const commercialServices = {
   small: [
@@ -33,26 +36,21 @@ const commercialServices = {
   ],
 };
 
-const features = [
+const trustFeatures = [
   {
-    icon: <MapPin className="w-6 h-6" />,
-    title: "Tri-State Coverage",
-    description: "Manage your entire Pacific Northwest property portfolio with one licensed contractor. We're properly licensed in Oregon, Washington, and Idaho.",
+    icon: iconLiability,
+    title: "$1M Liability Protection",
+    description: "We carry $1,000,000 in general liability insurance and a $15,000 surety bond, protecting your property throughout every project.",
   },
   {
-    icon: <Clock className="w-6 h-6" />,
-    title: "Minimal Disruption",
-    description: "We schedule work to minimize impact on your operations and tenants, with flexible timing options including evenings and weekends when needed.",
+    icon: iconTristate,
+    title: "Tri-State Licensed",
+    description: "Fully licensed in Oregon (CCB 218151), Washington (COLORMP822NT), and Idaho (RCE-52605) for complete regional coverage.",
   },
   {
-    icon: <Shield className="w-6 h-6" />,
-    title: "Complete Insurance",
-    description: "$1,000,000 liability coverage and proper licensing protect your property and provide peace of mind for property managers and owners.",
-  },
-  {
-    icon: <Users className="w-6 h-6" />,
-    title: "Experienced Crews",
-    description: "Our teams have worked together for 8+ years, bringing professional standards and consistent quality to every commercial project.",
+    icon: iconBbb,
+    title: "BBB A+ Rated",
+    description: "Maintaining BBB Accreditation since 2018 with A+ rating and BuildZoom score of 98, ranking in the top 16% of Oregon contractors.",
   },
 ];
 
@@ -92,21 +90,34 @@ const CommercialPainting = () => {
         </div>
       </Section>
 
-      {/* Why Property Managers Choose Us */}
-      <Section variant="alt">
-        <SectionHeader title="Reliable Commercial Painting Across Three States" />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature, index) => (
-            <div key={index} className="bg-card rounded-xl p-6 shadow-soft">
-              <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary mb-4">
-                {feature.icon}
+      {/* Why Choose Us */}
+      <section className="relative z-20 pb-16">
+        <div className="container">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-8">
+            Reliable Commercial Painting Across Three States
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {trustFeatures.map((feature, index) => (
+              <div 
+                key={index} 
+                className="bg-white/[0.97] rounded-xl p-8 shadow-lg text-center"
+              >
+                <img 
+                  src={feature.icon} 
+                  alt={feature.title} 
+                  className="h-12 w-auto mx-auto mb-4"
+                />
+                <h3 className="font-display text-lg font-bold text-foreground mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="font-display text-lg font-semibold mb-2">{feature.title}</h3>
-              <p className="text-muted-foreground text-sm">{feature.description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </Section>
+      </section>
 
       {/* Services Overview - moved above Our Commercial Work */}
       <Section>
