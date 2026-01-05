@@ -67,7 +67,13 @@ const ResidentialPainting = () => {
       {/* Intro Section */}
       <Section className="overflow-visible">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1 relative pt-3 pl-3">
+          <motion.div 
+            className="order-2 lg:order-1 relative pt-3 pl-3"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             {/* Decorative background shape */}
             <div className="absolute top-0 left-0 w-[92%] h-[92%] bg-secondary rounded-2xl" />
             <div className="overflow-hidden rounded-xl relative z-10">
@@ -79,8 +85,14 @@ const ResidentialPainting = () => {
                 transition={{ duration: 0.4, ease: "easeOut" }}
               />
             </div>
-          </div>
-          <div className="order-1 lg:order-2 space-y-6">
+          </motion.div>
+          <motion.div 
+            className="order-1 lg:order-2 space-y-6"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          >
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
               Residential Interior & Exterior Painting
             </h1>
@@ -90,7 +102,7 @@ const ResidentialPainting = () => {
             <p className="text-muted-foreground leading-relaxed">
               Color Masters Painting provides complete residential painting services throughout Northeast Oregon, Tri-Cities Washington, and Idaho. We handle everything from single-room updates to whole-house interior and exterior repaints, always with proper surface preparation, quality materials, and attention to detail.
             </p>
-          </div>
+          </motion.div>
         </div>
       </Section>
 
@@ -102,9 +114,13 @@ const ResidentialPainting = () => {
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {trustFeatures.map((feature, index) => (
-              <div 
+              <motion.div 
                 key={index} 
                 className="bg-white/[0.97] rounded-xl p-8 shadow-lg text-center"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.15 }}
               >
                 <img 
                   src={feature.icon} 
@@ -117,7 +133,7 @@ const ResidentialPainting = () => {
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {feature.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -128,7 +144,13 @@ const ResidentialPainting = () => {
       <Section variant="alt">
         <SectionHeader title="Interior & Exterior Painting: Key Considerations" />
         <div className="grid lg:grid-cols-2 gap-12">
-          <div className="space-y-6">
+          <motion.div 
+            className="space-y-6"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
             <div className="overflow-hidden rounded-xl">
               <motion.img 
                 src={interiorPainting} 
@@ -145,8 +167,14 @@ const ResidentialPainting = () => {
               <p><strong className="text-foreground">Surface Preparation:</strong> We patch holes, repair cracks, sand surfaces, and prime where needed for smooth, professional results.</p>
               <p><strong className="text-foreground">Paint Selection:</strong> We help you choose the right finishes for each room—matte for ceilings, satin for walls, semi-gloss for trim and high-traffic areas.</p>
             </div>
-          </div>
-          <div className="space-y-6">
+          </motion.div>
+          <motion.div 
+            className="space-y-6"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
+          >
             <div className="overflow-hidden rounded-xl">
               <motion.img 
                 src={residentialHero} 
@@ -163,13 +191,19 @@ const ResidentialPainting = () => {
               <p><strong className="text-foreground">Surface Preparation:</strong> Thorough scraping, sanding, and priming of all surfaces. We address any rot or damage before painting begins.</p>
               <p><strong className="text-foreground">Paint Selection:</strong> We use weather-resistant, moisture and mildew-resistant paints with UV protection suitable for Oregon, Washington, and Idaho climates.</p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </Section>
 
       {/* Service Area */}
       <Section>
-        <div className="max-w-3xl mx-auto text-center space-y-6">
+        <motion.div 
+          className="max-w-3xl mx-auto text-center space-y-6"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <MapPin className="w-12 h-12 text-secondary mx-auto" />
           <h2 className="font-display text-3xl md:text-4xl font-bold">Serving Homeowners Throughout the Pacific Northwest</h2>
           <p className="text-lg text-muted-foreground">
@@ -181,14 +215,20 @@ const ResidentialPainting = () => {
             <span className="px-4 py-2 bg-background-alt rounded-lg">Boise region, Idaho</span>
             <span className="px-4 py-2 bg-background-alt rounded-lg">Surrounding Pacific Northwest communities</span>
           </div>
-        </div>
+        </motion.div>
       </Section>
 
       {/* What's Included Section - moved above Our Residential Work */}
       <Section variant="alt">
         <SectionHeader title="Complete Residential Painting Services" />
         <div className="grid lg:grid-cols-2 gap-12">
-          <div className="bg-card rounded-xl p-8 shadow-card">
+          <motion.div 
+            className="bg-card rounded-xl p-8 shadow-card"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
             <h3 className="font-display text-2xl font-semibold mb-6 text-secondary">Interior Painting Includes:</h3>
             <ul className="space-y-3">
               {interiorServices.map((service, index) => (
@@ -198,8 +238,14 @@ const ResidentialPainting = () => {
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="bg-card rounded-xl p-8 shadow-card">
+          </motion.div>
+          <motion.div 
+            className="bg-card rounded-xl p-8 shadow-card"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
+          >
             <h3 className="font-display text-2xl font-semibold mb-6 text-secondary">Exterior Painting Includes:</h3>
             <ul className="space-y-3">
               {exteriorServices.map((service, index) => (
@@ -209,7 +255,7 @@ const ResidentialPainting = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         </div>
       </Section>
 
