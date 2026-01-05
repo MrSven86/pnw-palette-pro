@@ -4,6 +4,7 @@ import { Section, SectionHeader } from "@/components/Section";
 import { EstimateSection } from "@/components/EstimateSection";
 import { ProjectSlideshow } from "@/components/ProjectSlideshow";
 import { MapPin, CheckCircle } from "lucide-react";
+import { motion } from "framer-motion";
 
 import residentialHero from "@/assets/residential-hero.avif";
 import residentialHouse from "@/assets/residential-house.jpg";
@@ -69,11 +70,15 @@ const ResidentialPainting = () => {
           <div className="order-2 lg:order-1 relative pt-3 pl-3">
             {/* Decorative background shape */}
             <div className="absolute top-0 left-0 w-[92%] h-[92%] bg-secondary rounded-2xl" />
-            <img
-              src={residentialHouse} 
-              alt="Residential house painting project" 
-              className="rounded-xl shadow-card w-full aspect-[4/3] object-cover relative z-10"
-            />
+            <div className="overflow-hidden rounded-xl relative z-10">
+              <motion.img
+                src={residentialHouse} 
+                alt="Residential house painting project" 
+                className="shadow-card w-full aspect-[4/3] object-cover"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+              />
+            </div>
           </div>
           <div className="order-1 lg:order-2 space-y-6">
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
@@ -124,7 +129,15 @@ const ResidentialPainting = () => {
         <SectionHeader title="Interior & Exterior Painting: Key Considerations" />
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-6">
-            <img src={interiorPainting} alt="Interior painting" className="rounded-xl shadow-card w-full aspect-video object-cover" />
+            <div className="overflow-hidden rounded-xl">
+              <motion.img 
+                src={interiorPainting} 
+                alt="Interior painting" 
+                className="shadow-card w-full aspect-video object-cover"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+              />
+            </div>
             <h3 className="font-display text-2xl font-semibold">Interior Painting</h3>
             <div className="space-y-4 text-muted-foreground">
               <p><strong className="text-foreground">Best Timing:</strong> Year-round project, though ventilation is important for proper drying.</p>
@@ -134,7 +147,15 @@ const ResidentialPainting = () => {
             </div>
           </div>
           <div className="space-y-6">
-            <img src={residentialHero} alt="Exterior painting" className="rounded-xl shadow-card w-full aspect-video object-cover" />
+            <div className="overflow-hidden rounded-xl">
+              <motion.img 
+                src={residentialHero} 
+                alt="Exterior painting" 
+                className="shadow-card w-full aspect-video object-cover"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+              />
+            </div>
             <h3 className="font-display text-2xl font-semibold">Exterior Painting</h3>
             <div className="space-y-4 text-muted-foreground">
               <p><strong className="text-foreground">Best Timing:</strong> Late spring through early fall when weather is dry and temperatures are stable. Pacific Northwest conditions require careful scheduling.</p>
