@@ -4,6 +4,7 @@ import { Section, SectionHeader } from "@/components/Section";
 import { EstimateSection } from "@/components/EstimateSection";
 import { ProjectSlideshow } from "@/components/ProjectSlideshow";
 import { Building2, Home, Factory } from "lucide-react";
+import { motion } from "framer-motion";
 
 import commercialHero from "@/assets/commercial-hero.jpg";
 import commercialBuilding from "@/assets/commercial-building.jpg";
@@ -54,6 +55,23 @@ const trustFeatures = [
   },
 ];
 
+const serviceCards = [
+  {
+    icon: Building2,
+    title: "Small Commercial Properties",
+    items: commercialServices.small,
+  },
+  {
+    icon: Home,
+    title: "Multi-Unit Residential",
+    items: commercialServices.multiUnit,
+  },
+  {
+    icon: Factory,
+    title: "Light Industrial",
+    items: commercialServices.industrial,
+  },
+];
 
 const CommercialPainting = () => {
   return (
@@ -69,14 +87,26 @@ const CommercialPainting = () => {
       {/* Intro Section */}
       <Section>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1">
+          <motion.div 
+            className="order-2 lg:order-1"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             <img 
               src={commercialBuilding} 
               alt="Commercial building painting project" 
               className="rounded-xl shadow-card w-full aspect-[4/3] object-cover"
             />
-          </div>
-          <div className="order-1 lg:order-2 space-y-6">
+          </motion.div>
+          <motion.div 
+            className="order-1 lg:order-2 space-y-6"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          >
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
               Commercial & Industrial Painting Services
             </h1>
@@ -86,7 +116,7 @@ const CommercialPainting = () => {
             <p className="text-muted-foreground leading-relaxed">
               Color Masters Painting handles commercial and light industrial painting projects across Northeast Oregon, Tri-Cities Washington, and Idaho. We understand commercial clients need scheduled completion dates, minimal operational disruption, and contractors who deliver quality work without excuses.
             </p>
-          </div>
+          </motion.div>
         </div>
       </Section>
 
@@ -123,48 +153,32 @@ const CommercialPainting = () => {
       <Section>
         <SectionHeader title="Commercial Painting Expertise" />
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-card rounded-xl p-8 shadow-card">
-            <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary mb-4">
-              <Building2 className="w-6 h-6" />
-            </div>
-            <h3 className="font-display text-xl font-semibold mb-4">Small Commercial Properties</h3>
-            <ul className="space-y-2 text-muted-foreground">
-              {commercialServices.small.map((item, index) => (
-                <li key={index} className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="bg-card rounded-xl p-8 shadow-card">
-            <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary mb-4">
-              <Home className="w-6 h-6" />
-            </div>
-            <h3 className="font-display text-xl font-semibold mb-4">Multi-Unit Residential</h3>
-            <ul className="space-y-2 text-muted-foreground">
-              {commercialServices.multiUnit.map((item, index) => (
-                <li key={index} className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="bg-card rounded-xl p-8 shadow-card">
-            <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary mb-4">
-              <Factory className="w-6 h-6" />
-            </div>
-            <h3 className="font-display text-xl font-semibold mb-4">Light Industrial</h3>
-            <ul className="space-y-2 text-muted-foreground">
-              {commercialServices.industrial.map((item, index) => (
-                <li key={index} className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+          {serviceCards.map((card, index) => {
+            const IconComponent = card.icon;
+            return (
+              <motion.div 
+                key={index}
+                className="bg-card rounded-xl p-8 shadow-card"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.15 }}
+              >
+                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary mb-4">
+                  <IconComponent className="w-6 h-6" />
+                </div>
+                <h3 className="font-display text-xl font-semibold mb-4">{card.title}</h3>
+                <ul className="space-y-2 text-muted-foreground">
+                  {card.items.map((item, itemIndex) => (
+                    <li key={itemIndex} className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            );
+          })}
         </div>
       </Section>
 
