@@ -3,9 +3,10 @@ import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeader } from "@/components/Section";
 import { EstimateSection } from "@/components/EstimateSection";
 import { ProjectSlideshow } from "@/components/ProjectSlideshow";
-import { Building2, Home, Factory, MapPin, Shield, Clock, FileCheck, Users } from "lucide-react";
+import { Building2, Home, Factory, MapPin, Shield, Clock, Users } from "lucide-react";
 
 import commercialHero from "@/assets/commercial-hero.jpg";
+import commercialBuilding from "@/assets/commercial-building.jpg";
 
 const commercialServices = {
   small: [
@@ -67,7 +68,47 @@ const CommercialPainting = () => {
         primaryCta={{ text: "Request Commercial Quote", href: "/contact" }}
       />
 
-      {/* Services Overview */}
+      {/* Intro Section */}
+      <Section>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="order-2 lg:order-1">
+            <img 
+              src={commercialBuilding} 
+              alt="Commercial building painting project" 
+              className="rounded-xl shadow-card w-full aspect-[4/3] object-cover"
+            />
+          </div>
+          <div className="order-1 lg:order-2 space-y-6">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+              Commercial & Industrial Painting Services
+            </h1>
+            <p className="text-lg font-medium text-secondary">
+              Professional Building Painting for Property Managers, Facility Owners & General Contractors
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Color Masters Painting handles commercial and light industrial painting projects across Northeast Oregon, Tri-Cities Washington, and Idaho. We understand commercial clients need scheduled completion dates, minimal operational disruption, and contractors who deliver quality work without excuses.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* Why Property Managers Choose Us */}
+      <Section variant="alt">
+        <SectionHeader title="Reliable Commercial Painting Across Three States" />
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((feature, index) => (
+            <div key={index} className="bg-card rounded-xl p-6 shadow-soft">
+              <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary mb-4">
+                {feature.icon}
+              </div>
+              <h3 className="font-display text-lg font-semibold mb-2">{feature.title}</h3>
+              <p className="text-muted-foreground text-sm">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Services Overview - moved above Our Commercial Work */}
       <Section>
         <SectionHeader title="Commercial Painting Expertise" />
         <div className="grid md:grid-cols-3 gap-8">
@@ -115,23 +156,6 @@ const CommercialPainting = () => {
           </div>
         </div>
       </Section>
-
-      {/* Why Property Managers Choose Us */}
-      <Section variant="alt">
-        <SectionHeader title="Reliable Commercial Painting Across Three States" />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature, index) => (
-            <div key={index} className="bg-card rounded-xl p-6 shadow-soft">
-              <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary mb-4">
-                {feature.icon}
-              </div>
-              <h3 className="font-display text-lg font-semibold mb-2">{feature.title}</h3>
-              <p className="text-muted-foreground text-sm">{feature.description}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
 
       {/* Recent Work Gallery */}
       <section className="py-20 bg-muted/30">
