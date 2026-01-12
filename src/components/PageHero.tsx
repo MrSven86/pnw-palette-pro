@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 interface PageHeroProps {
   preHeadline?: string;
+  title?: string; // Main H1 for SEO (e.g., company name)
   headline: string;
   subHeadline: string;
   backgroundImage: string;
@@ -21,6 +22,7 @@ interface PageHeroProps {
 
 export function PageHero({
   preHeadline,
+  title,
   headline,
   subHeadline,
   backgroundImage,
@@ -55,14 +57,24 @@ export function PageHero({
               {preHeadline}
             </motion.p>
           )}
-          <motion.h1 
-            className="font-display text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-[1.1]"
+          {title && (
+            <motion.h1 
+              className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-2"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+            >
+              {title}
+            </motion.h1>
+          )}
+          <motion.p 
+            className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold text-white/95 leading-[1.2]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
+            transition={{ duration: 0.6, delay: title ? 0.85 : 0.7 }}
           >
             {headline}
-          </motion.h1>
+          </motion.p>
           <motion.p 
             className="text-base md:text-lg text-white/80 max-w-xl leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
