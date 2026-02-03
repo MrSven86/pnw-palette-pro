@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import logoWhite from "@/assets/logo-white.png";
 
 const navigation = [
   { name: "About", href: "/about" },
@@ -33,13 +34,13 @@ export function Header() {
     >
       <nav className="container flex items-center justify-between py-4">
         <Link to="/" className="flex items-center">
-          <span 
-            className={`font-display text-xl md:text-2xl font-bold transition-all duration-300 ${
-              scrolled ? "text-foreground" : "text-white"
+          <img 
+            src={logoWhite} 
+            alt="Color Masters Painting Inc" 
+            className={`h-8 md:h-10 w-auto transition-all duration-300 ${
+              scrolled ? "brightness-0" : ""
             }`}
-          >
-            Color Masters
-          </span>
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -60,6 +61,17 @@ export function Header() {
         </div>
 
         <div className="hidden lg:flex items-center gap-4">
+          <a
+            href="tel:208-447-7085"
+            className={`flex items-center gap-2 font-body font-bold text-[13px] transition-all duration-300 ${
+              scrolled 
+                ? "text-foreground/80 hover:text-foreground" 
+                : "text-white/90 hover:text-white"
+            }`}
+          >
+            <Phone className="h-4 w-4" />
+            (208) 447-7085
+          </a>
           <a
             href="tel:509-554-1969"
             className={`flex items-center gap-2 font-body font-bold text-[13px] transition-all duration-300 ${
@@ -106,6 +118,15 @@ export function Header() {
               </Link>
             ))}
             <div className={`pt-4 border-t ${scrolled ? "border-foreground/20" : "border-white/20"} space-y-4`}>
+              <a
+                href="tel:208-447-7085"
+                className={`flex items-center gap-2 font-body font-bold text-[13px] ${
+                  scrolled ? "text-foreground/80" : "text-white/90"
+                }`}
+              >
+                <Phone className="h-5 w-5" />
+                (208) 447-7085
+              </a>
               <a
                 href="tel:509-554-1969"
                 className={`flex items-center gap-2 font-body font-bold text-[13px] ${

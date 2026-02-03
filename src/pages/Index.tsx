@@ -139,7 +139,7 @@ const Index = () => {
       {/* Hero Section */}
       <PageHero
         preHeadline="Licensed Painting Contractors Serving Oregon, Washington & Idaho"
-        title="Color Masters Painting"
+        title="Color Masters Painting Inc"
         headline="Professional Painting with Tri-State Licensed Coverage and $1M Protection"
         subHeadline="Color Masters Painting delivers quality results across the Pacific Northwest with BBB A+ rated service, fully insured crews, and 8+ years of continuous crew experience from our Desert Drywall heritage."
         backgroundImage={heroBanner}
@@ -288,15 +288,18 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-6 mt-8 text-center">
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="font-display font-bold text-lg text-foreground mb-2">Oregon</h3>
-              <p className="text-muted-foreground text-sm">CCB License #218151</p>
+              <p className="text-muted-foreground text-sm mb-2">CCB License #218151</p>
+              <p className="text-muted-foreground text-xs">Hermiston, Pendleton, Heppner, and surrounding areas</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="font-display font-bold text-lg text-foreground mb-2">Washington</h3>
-              <p className="text-muted-foreground text-sm">License #COLORMP822NT</p>
+              <p className="text-muted-foreground text-sm mb-2">License #COLORMP822NT</p>
+              <p className="text-muted-foreground text-xs">Tri-Cities, Spokane, Yakima, and surrounding areas</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="font-display font-bold text-lg text-foreground mb-2">Idaho</h3>
-              <p className="text-muted-foreground text-sm">RCE License #52605</p>
+              <p className="text-muted-foreground text-sm mb-2">RCE License #52605</p>
+              <p className="text-muted-foreground text-xs">Post Falls, Rathdrum, Coeur d'Alene, and surrounding areas</p>
             </div>
           </div>
         </div>
