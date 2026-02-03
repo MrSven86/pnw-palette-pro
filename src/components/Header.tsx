@@ -34,18 +34,18 @@ export function Header() {
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
       <nav className="container flex items-center justify-between py-4">
-        <Link to="/" className="flex items-center relative h-8 md:h-10">
+        <Link to="/" className="flex items-center relative h-10 md:h-14">
           <img 
             src={logoWhite} 
             alt="Color Masters Painting Inc" 
-            className={`h-8 md:h-10 w-auto absolute transition-opacity duration-300 ${
+            className={`h-10 md:h-14 w-auto absolute transition-opacity duration-300 ${
               scrolled ? "opacity-0" : "opacity-100"
             }`}
           />
           <img 
             src={logoColor} 
             alt="Color Masters Painting Inc" 
-            className={`h-8 md:h-10 w-auto transition-opacity duration-300 ${
+            className={`h-10 md:h-14 w-auto transition-opacity duration-300 ${
               scrolled ? "opacity-100" : "opacity-0"
             }`}
           />
