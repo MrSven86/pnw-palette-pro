@@ -16,7 +16,7 @@ export function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <h3 className="font-display text-2xl font-bold tracking-tight">
-              COLOR MASTERS
+              COLOR MASTERS PAINTING INC
             </h3>
             <p className="text-sm text-white/70 leading-relaxed">
               As professional painting contractors serving the Pacific Northwest since 2017, we take pride in transforming properties across Oregon, Washington, and Idaho with quality craftsmanship, experienced crews, and complete project protection.
@@ -38,18 +38,18 @@ export function Footer() {
                 </span>
               </div>
               <a
-                href="tel:509-554-1969"
-                className="flex items-center gap-3 text-white/70 hover:text-primary transition-colors"
-              >
-                <Phone className="h-4 w-4 text-primary" />
-                (509) 554-1969
-              </a>
-              <a
                 href="tel:208-447-7085"
                 className="flex items-center gap-3 text-white/70 hover:text-primary transition-colors"
               >
                 <Phone className="h-4 w-4 text-primary" />
                 (208) 447-7085
+              </a>
+              <a
+                href="tel:509-554-1969"
+                className="flex items-center gap-3 text-white/70 hover:text-primary transition-colors"
+              >
+                <Phone className="h-4 w-4 text-primary" />
+                (509) 554-1969
               </a>
               <a
                 href="mailto:contact@colormasterspaintinginc.com"
@@ -114,7 +114,7 @@ export function Footer() {
         <div className="container py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-white/50">
-              © {new Date().getFullYear()} <span className="text-primary">Color Masters Painting Inc.</span> | All Rights Reserved
+              © {new Date().getFullYear()} <span className="text-primary">Color Masters Painting Inc</span> | All Rights Reserved
             </p>
             <div className="flex items-center gap-3">
               <a 
