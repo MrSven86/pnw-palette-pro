@@ -4,6 +4,7 @@ import { Phone, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import logoWhite from "@/assets/logo-white.png";
+import logoColor from "@/assets/logo-color.png";
 
 const navigation = [
   { name: "About", href: "/about" },
@@ -33,12 +34,19 @@ export function Header() {
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
       <nav className="container flex items-center justify-between py-4">
-        <Link to="/" className="flex items-center">
+        <Link to="/" className="flex items-center relative h-8 md:h-10">
           <img 
             src={logoWhite} 
             alt="Color Masters Painting Inc" 
-            className={`h-8 md:h-10 w-auto transition-all duration-300 ${
-              scrolled ? "brightness-0" : ""
+            className={`h-8 md:h-10 w-auto absolute transition-opacity duration-300 ${
+              scrolled ? "opacity-0" : "opacity-100"
+            }`}
+          />
+          <img 
+            src={logoColor} 
+            alt="Color Masters Painting Inc" 
+            className={`h-8 md:h-10 w-auto transition-opacity duration-300 ${
+              scrolled ? "opacity-100" : "opacity-0"
             }`}
           />
         </Link>
@@ -61,17 +69,6 @@ export function Header() {
         </div>
 
         <div className="hidden lg:flex items-center gap-4">
-          <a
-            href="tel:208-447-7085"
-            className={`flex items-center gap-2 font-body font-bold text-[13px] transition-all duration-300 ${
-              scrolled 
-                ? "text-foreground/80 hover:text-foreground" 
-                : "text-white/90 hover:text-white"
-            }`}
-          >
-            <Phone className="h-4 w-4" />
-            (208) 447-7085
-          </a>
           <a
             href="tel:509-554-1969"
             className={`flex items-center gap-2 font-body font-bold text-[13px] transition-all duration-300 ${
@@ -118,15 +115,6 @@ export function Header() {
               </Link>
             ))}
             <div className={`pt-4 border-t ${scrolled ? "border-foreground/20" : "border-white/20"} space-y-4`}>
-              <a
-                href="tel:208-447-7085"
-                className={`flex items-center gap-2 font-body font-bold text-[13px] ${
-                  scrolled ? "text-foreground/80" : "text-white/90"
-                }`}
-              >
-                <Phone className="h-5 w-5" />
-                (208) 447-7085
-              </a>
               <a
                 href="tel:509-554-1969"
                 className={`flex items-center gap-2 font-body font-bold text-[13px] ${
