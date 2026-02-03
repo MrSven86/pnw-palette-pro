@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Globe, Facebook, Instagram } from "lucide-react";
+import logoWhite from "@/assets/logo-white.png";
 
 const serviceAreas = [
   "Portland Metro", "Salem", "Eugene", "Bend", "Hermiston",
@@ -15,6 +16,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="space-y-4">
+            <img 
+              src={logoWhite} 
+              alt="Color Masters Painting Inc" 
+              className="h-10 w-auto mb-2"
+            />
             <h3 className="font-display text-2xl font-bold tracking-tight">
               COLOR MASTERS PAINTING INC
             </h3>
