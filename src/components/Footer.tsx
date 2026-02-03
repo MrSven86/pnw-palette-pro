@@ -19,7 +19,7 @@ export function Footer() {
             <img 
               src={logoWhite} 
               alt="Color Masters Painting Inc" 
-              className="h-10 w-auto mb-2"
+              className="h-14 w-auto mb-3"
             />
             <h3 className="font-display text-2xl font-bold tracking-tight">
               COLOR MASTERS PAINTING INC
