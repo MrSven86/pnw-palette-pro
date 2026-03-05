@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock, Shield, Award, CheckCircle } from "lucide-react";
 import { useState } from "react";
-import { toast } from "@/hooks/use-toast";
+import { toast } from "sonner";
 
 import heroHome from "@/assets/hero-home.jpg";
 
@@ -36,6 +36,7 @@ const contactSteps = [
 ];
 
 const Contact = () => {
+  const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -47,22 +48,47 @@ const Contact = () => {
     contactMethod: "phone",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Request Submitted!",
-      description: "We'll contact you within 1 business day to discuss your project.",
-    });
-    setFormData({
-      name: "",
-      phone: "",
-      email: "",
-      address: "",
-      propertyType: "residential",
-      serviceNeeded: "interior",
-      message: "",
-      contactMethod: "phone",
-    });
+    if (!formData.name.trim() || !formData.phone.trim() || !formData.email.trim()) {
+      toast.error("Please fill in all required fields.");
+      return;
+    }
+
+    const message = [
+      formData.message && `Project Description: ${formData.message}`,
+      formData.address && `Property Address: ${formData.address}`,
+      `Property Type: ${formData.propertyType}`,
+      `Service Needed: ${formData.serviceNeeded}`,
+      `Preferred Contact Method: ${formData.contactMethod}`,
+    ].filter(Boolean).join("\n");
+
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://velocity-contact-form-api.vercel.app/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          message,
+          website: "colormastersinc.com",
+          clientEmail: "tomas.gustav.eriksson@gmail.com",
+        }),
+      });
+      if (!res.ok) throw new Error("Failed to send");
+      toast.success("Your estimate request has been sent! We'll be in touch soon.");
+      setFormData({
+        name: "", phone: "", email: "", address: "",
+        propertyType: "residential", serviceNeeded: "interior",
+        message: "", contactMethod: "phone",
+      });
+    } catch {
+      toast.error("Something went wrong. Please call us directly or try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -179,8 +205,8 @@ const Contact = () => {
                   <option value="email">Email</option>
                 </select>
               </div>
-              <Button type="submit" size="lg" className="w-full">
-                Send My Request
+              <Button type="submit" size="lg" className="w-full" disabled={submitting}>
+                {submitting ? "Sending..." : "Send My Request"}
               </Button>
             </form>
           </div>
