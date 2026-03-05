@@ -47,7 +47,7 @@ export function EstimateForm() {
           phone: form.phone.trim(),
           message,
           website: "colormastersinc.com",
-          clientEmail: "tomas.gustav.eriksson@gmail.com",
+          clientEmail: "rickwilson@colormasterspaintinginc.com",
         }),
       });
       if (!res.ok) throw new Error("Failed to send");
